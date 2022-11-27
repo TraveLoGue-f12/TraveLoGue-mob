@@ -144,12 +144,12 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           onPressed: () async {
                             final response = await request
-                                .login("http://127.0.0.1:8000/auth/login/", {
+                                .login("http://10.0.2.2/auth/login/", {
                               'username': username,
                               'password': password1,
                             });
-
-                            if (response.loggedIn) {
+                           
+                            if (request.loggedIn) {
                               if (_loginFormKey.currentState!.validate()) {
                                 Navigator.pushReplacementNamed(
                                     context, '/home');
