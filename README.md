@@ -21,6 +21,14 @@ Kunjungi aplikasi TraveLoGue pada tautan berikut: [TraveLoGue Heroku App](https:
 Terhitung sejak 1 Desember 2021 hingga 30 November 2022, Indonesia terpilih menjadi tuan rumah Presidensi G20. Tujuan utama dibentuknya G20 adalah menemukan solusi bersama atas kondisi ekonomi global. Forum G20 merepresentasikan 80% ekonomi dunia, 75% perdagangan internasional, dan 2/3 populasi dunia. Hal ini menunjukkan betapa pentingnya forum ini dalam menentukan arah kebijakan ekonomi dunia. </br>
 TraveLoGue hadir memanfaatkan momentum presidensi G20 untuk mempromosikan objek pariwisata dan UMKM Indonesia. TraveLoGue mengajak para masyarakat Indonesia untuk ikut serta membagikan keindahan dan keberagaman Indonesia kepada turis asing. Tujuan utama kami yaitu menyediakan wadah bagi warga lokal untuk berbagi perspektif serta rekomendasi aktivitas yang dapat dilakukan saat berkunjung ke kota-kota di Indonesia – dari objek pariwisata yang memiliki nilai historis unik, hingga aneka ragam UMKM lokal yang kreatif. TraveLoGue diharapkan dapat menarik perhatian turis asing untuk mengunjungi dan mengeksplorasi pesona-pesona yang dimiliki Indonesia. Dengan bertambahnya turis asing yang mengunjungi Indonesia, maraknya pengunjung objek pariwisata, serta meningkatnya eksposur UMKM lokal, diharapkan bahwa ekonomi Indonesia pun dapat ikut terbantu.
 
+## 🔗 Integrasi dengan Situs Web 🔗
+Berikut adalah langkah-langkah yang akan dilakukan untuk mengintegrasikan aplikasi dengan server web:
+
+1. Mengimplementasikan sebuah _wrapper class_ dengan menggunakan library _http_ dan _map_ untuk mendukung penggunaan _cookie-based authentication_ pada aplikasi.
+2. Mengimplementasikan REST API pada Django (views.<area>py) dengan menggunakan JsonResponse atau Django JSON Serializer.
+3. Mengimplementasikan desain _front-end_ untuk aplikasi berdasarkan desain website yang sudah ada sebelumnya.
+4. Melakukan integrasi antara _front-end_ dengan _back-end_ dengan menggunakan konsep _asynchronous_ HTTP.
+
 ## 📂 Daftar Modul 📂
 Berikut ini beberapa fitur yang disediakan pada situs TraveLoGue:
 ### 🛍 Recommended Local Shops
