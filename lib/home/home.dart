@@ -10,6 +10,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, 
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text("Home"),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+              child: Text("Back"))
+        ]),
+      ),
+    );
   }
 }

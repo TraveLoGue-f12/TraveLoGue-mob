@@ -18,6 +18,29 @@ class _LoginPageState extends State<LoginPage> {
   String username = "";
   String password1 = "";
   String statusMessage = "";
+
+  void _initLogin(request) async {
+    final response = await request.login("http://10.0.2.2:8000/auth/login/", {
+      'username': username,
+      'password': password1,
+    }).then((value) {
+      final newValue = new Map<String, dynamic>.from(value);
+      print(newValue['message']);
+
+      setState(() {
+        if (newValue['message'].toString() ==
+            "Failed to Login, check your email/password.") {
+          statusMessage = "Failed to login, check your username/password.";
+        } else
+          statusMessage = newValue['message'].toString();
+      });
+    });
+
+    if (request.loggedIn) {
+      Navigator.pushReplacementNamed(context, '/home');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
@@ -132,45 +155,22 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.all(8.0),
                         width: double.infinity,
                         child: ElevatedButton(
-                          child: const Text(
-                            "Login",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(14))),
-                            backgroundColor:
-                                MaterialStateProperty.all(buttonColor),
-                          ),
-                          onPressed: () async {
-                            final response = await request
-                                .login("http://10.0.2.2:8000/auth/login/", {
-                              'username': username,
-                              'password': password1,
-                            }).then((value) {
-                              final newValue = new Map<String, dynamic>.from(value);
-                              print(newValue['message']);
-
-                              setState(() {
-                                if(newValue['message'].toString() == "Failed to Login, check your email/password.") {
-                                  statusMessage = "Failed to login, check your username/password.";
-                                }
-                                else statusMessage = newValue['message'].toString();
-                              });
-                              
-                            } );
-                            
-                            if (request.loggedIn) {
+                            child: const Text(
+                              "Login",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(14))),
+                              backgroundColor:
+                                  MaterialStateProperty.all(buttonColor),
+                            ),
+                            onPressed: () {
                               if (_loginFormKey.currentState!.validate()) {
-                                // Navigator.pushReplacementNamed(
-                                //     context, '/home');
+                                _initLogin(request);
                               }
-                            }
-                          },
-                          
-                        ),
-                      
+                            }),
                       ),
                       Text(statusMessage)
                     ]),
