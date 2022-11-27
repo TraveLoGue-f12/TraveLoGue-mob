@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         if (newValue['message'].toString() ==
             "Failed to Login, check your email/password.") {
-          statusMessage = "Failed to login, check your username/password.";
+          statusMessage = "Invalid username/password!";
         } else
           statusMessage = newValue['message'].toString();
       });
