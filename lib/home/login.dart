@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   String statusMessage = "";
 
   void _initLogin(request) async {
-    final response = await request.login("http://10.0.2.2:8000/auth/login/", {
+    final response = await request.login("https://trave-lo-gue.up.railway.app/auth/login/", {
       'username': username,
       'password': password1,
     }).then((value) {
