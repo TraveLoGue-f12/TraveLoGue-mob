@@ -17,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
 
   String username = "";
   String password1 = "";
+  String statusMessage = "";
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
@@ -144,29 +145,34 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           onPressed: () async {
                             final response = await request
-                                .login("http://10.0.2.2/auth/login/", {
+                                .login("http://10.0.2.2:8000/auth/login/", {
                               'username': username,
                               'password': password1,
-                            });
-                           
+                            }).then((value) {
+                              final newValue = new Map<String, dynamic>.from(value);
+                              print(newValue['message']);
+
+                              setState(() {
+                                if(newValue['message'].toString() == "Failed to Login, check your email/password.") {
+                                  statusMessage = "Failed to login, check your username/password.";
+                                }
+                                else statusMessage = newValue['message'].toString();
+                              });
+                              
+                            } );
+                            
                             if (request.loggedIn) {
                               if (_loginFormKey.currentState!.validate()) {
-                                Navigator.pushReplacementNamed(
-                                    context, '/home');
+                                // Navigator.pushReplacementNamed(
+                                //     context, '/home');
                               }
                             }
                           },
-                          // onPressed: (() {
-                          //   if (_loginFormKey.currentState!.validate()) {
-                          //     Navigator.pushReplacement(
-                          //         context,
-                          //         MaterialPageRoute(
-                          //           builder: (context) => const HomePage(),
-                          //         ));
-                          //   }
-                          // }),
+                          
                         ),
+                      
                       ),
+                      Text(statusMessage)
                     ]),
               )),
             ),
