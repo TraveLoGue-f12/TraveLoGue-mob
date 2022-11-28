@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                           // Validator sebagai validasi form
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
-                              return "Please fill out this field!";
+                              return "Please fill out this field.";
                             }
                             return null;
                           },
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                           // Validator sebagai validasi form
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
-                              return "Please fill out this field!";
+                              return "Please fill out this field.";
                             }
                             return null;
                           },
