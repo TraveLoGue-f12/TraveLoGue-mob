@@ -1,4 +1,4 @@
-[![Develop](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/develop.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/develop.yml)
+[![Staging](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/staging.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/staging.yml)
 [![Pre-Release](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/pre-release.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/pre-release.yml)
 [![Release](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/release.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/release.yml)
 
