@@ -8,7 +8,7 @@
 PRODUCT_NAME = travelogue
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.travelogue
+PRODUCT_BUNDLE_IDENTIFIER = com.travelogue
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 com.travelogue. All rights reserved.
