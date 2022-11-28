@@ -35,6 +35,10 @@ dependencies:
   # modules
   umkm:
     path: umkm
+  event:
+    path: event
+  forum:
+    path: forum
 
 
   # The following adds the Cupertino Icons font to your application.
