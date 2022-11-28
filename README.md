@@ -1,3 +1,4 @@
+https://build.appcenter.ms/v0.1/apps/43af980c-7df8-4cc0-9e94-380f90eb19e7/branches/main/badge
 # TraveLoGue: Panduan Wisata Indonesia
 
 ## 👥 Anggota Kelompok F-12 👥
