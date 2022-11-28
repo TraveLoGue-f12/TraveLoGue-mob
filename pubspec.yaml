@@ -32,6 +32,16 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # modules
+  umkm:
+    path: umkm
+  event:
+    path: event
+  forum:
+    path: forum
+  attractions:
+    path: attractions
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
