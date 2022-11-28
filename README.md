@@ -1,6 +1,7 @@
-[![Develop](https://github.com/TraveLoGue/TraveLogue-mob/actions/workflows/develop.yml/badge.svg)](https://github.com/TraveLoGue/TraveLoGue-mob/actions/workflows/develop.yml)
-[![Pre-Release](https://github.com/TraveLoGue/TraveLoGue-mob/actions/workflows/pre-release.yml/badge.svg)](https://github.com/TraveLoGue/TraveLoGue-mob/actions/workflows/pre-release.yml)
-[![Release](https://github.com/TraveLoGue/TraveLoGue-mob/actions/workflows/release.yml/badge.svg)](https://github.com/TraveLogue/TraveLoGue-mob/actions/workflows/release.yml)
+[![Develop](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/develop.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/develop.yml)
+[![Pre-Release](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/pre-release.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/pre-release.yml)
+[![Release](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/release.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/release.yml)
+
 
 # TraveLoGue: Panduan Wisata Indonesia
 
