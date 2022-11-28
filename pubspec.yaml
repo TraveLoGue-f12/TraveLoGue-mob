@@ -39,6 +39,8 @@ dependencies:
     path: event
   forum:
     path: forum
+  attractions:
+    path: attractions
 
 
   # The following adds the Cupertino Icons font to your application.
