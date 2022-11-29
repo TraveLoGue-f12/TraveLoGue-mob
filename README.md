@@ -6,15 +6,16 @@
 
 # TraveLoGue: Panduan Wisata Indonesia
 
+
+## 📱 Aplikasi 📱
+Saat ini, hanya tersedia versi Android (APK) untuk diunduh. File APK dapat diunduh di bagian [_releases_](https://github.com/TraveLoGue-f12/TraveLoGue-mob/releases) atau melalui [Microsoft Visual Studio App Center](https://install.appcenter.ms/orgs/travelogue/apps/travelogue/distribution_groups/public).
+
 ## 👥 Anggota Kelompok F-12 👥
 * [Ahmad Fatahillah](https://github.com/ahmdfthlh) (2106653741)
 * [Alanna](https://github.com/alannaaa) (2106639913)
 * [Nabila Zahra Putri Awangga](https://github.com/nabilaawangga) (2106703840)
 * [Muhammad Iqbal Dwitama](https://github.com/iqbaldwitama) (2106750490)
 * [Muhammad Raditya Hanif](https://github.com/radityahnf) (2106750585)
-
-## 📱 Aplikasi 📱
-Saat ini, hanya tersedia versi Android (APK) untuk diunduh. File APK dapat diunduh di bagian [_releases_](https://github.com/TraveLoGue-f12/TraveLoGue-mob/releases) atau melalui [Microsoft Visual Studio App Center](https://install.appcenter.ms/orgs/travelogue/apps/travelogue/distribution_groups/public).
 
 ## 📝 Pembagian Tugas Modul 📝
 * Recommended Local Shops - [Muhammad Raditya Hanif](https://github.com/radityahnf)
