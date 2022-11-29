@@ -70,10 +70,10 @@ Untuk para turis yang mencari kegiatan _hands-on_ dan ingin terjun beraktivitas 
 ### 📆 Travel Planner
 Turis dan warga lokal yang memiliki akun dapat menambahkan berbagai rencana perjalanan ke dalam Travel Planner mereka. Para pengguna dapat menambahkan rincian nama, rencana tanggal, serta catatan mengenai rencana tersebut.
 #### Peran Persona
-| User (logged in)  | Guest |
+| Warga Lokal | Turis Asing |
 | ------------- | ------------- |
-| Dapat menambahkan berbagai rencana perjalanan ke dalam Travel Planner pribadi. | Tidak dapat mengakses halaman My Planner.  |
-| Dapat menyunting dan menghapus rencana yang telah dibuat. |  |
+| Dapat menambahkan berbagai rencana perjalanan ke dalam Travel Planner pribadi. | Dapat menambahkan berbagai rencana perjalanan ke dalam Travel Planner pribadi.  |
+| Dapat menyunting dan menghapus rencana yang telah dibuat. | Dapat menyunting dan menghapus rencana yang telah dibuat. |
 
 ### 💬 Travel Forum
 Di Travel Forum, turis asing dapat dengan bebas menyampaikan pertanyaan mereka seputar kunjungan ke Indonesia langsung ke penduduk lokal. Komunitas lokal TraveLoGue pun dapat sukarela menjawab pertanyaan-pertanyaan tersebut.
