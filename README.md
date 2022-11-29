@@ -23,16 +23,16 @@ Saat ini, hanya tersedia versi Android (APK) untuk diunduh. File APK dapat diund
 * [Muhammad Iqbal Dwitama](https://github.com/iqbaldwitama) (2106750490)
 * [Muhammad Raditya Hanif](https://github.com/radityahnf) (2106750585)
 
+## ⛰ Latar Belakang TraveLoGue ⛰
+Terhitung sejak 1 Desember 2021 hingga 30 November 2022, Indonesia terpilih menjadi tuan rumah Presidensi G20. Tujuan utama dibentuknya G20 adalah menemukan solusi bersama atas kondisi ekonomi global. Forum G20 merepresentasikan 80% ekonomi dunia, 75% perdagangan internasional, dan 2/3 populasi dunia. Hal ini menunjukkan betapa pentingnya forum ini dalam menentukan arah kebijakan ekonomi dunia. </br>
+TraveLoGue hadir memanfaatkan momentum presidensi G20 untuk mempromosikan objek pariwisata dan UMKM Indonesia. TraveLoGue mengajak para masyarakat Indonesia untuk ikut serta membagikan keindahan dan keberagaman Indonesia kepada turis asing. Tujuan utama kami yaitu menyediakan wadah bagi warga lokal untuk berbagi perspektif serta rekomendasi aktivitas yang dapat dilakukan saat berkunjung ke kota-kota di Indonesia – dari objek pariwisata yang memiliki nilai historis unik, hingga aneka ragam UMKM lokal yang kreatif. TraveLoGue diharapkan dapat menarik perhatian turis asing untuk mengunjungi dan mengeksplorasi pesona-pesona yang dimiliki Indonesia. Dengan bertambahnya turis asing yang mengunjungi Indonesia, maraknya pengunjung objek pariwisata, serta meningkatnya eksposur UMKM lokal, diharapkan bahwa ekonomi Indonesia pun dapat ikut terbantu.
+
 ## 📝 Pembagian Tugas Modul 📝
 * Recommended Local Shops - [Muhammad Raditya Hanif](https://github.com/radityahnf)
 * Recommended Attractions - [Ahmad Fatahillah](https://github.com/ahmdfthlh)
 * Event Promotions - [Nabila Zahra Putri Awangga](https://github.com/nabilaawangga)
 * Travel Forum - [Muhammad Iqbal Dwitama](https://github.com/iqbaldwitama)
 * Travel Planner - [Alanna](https://github.com/alannaaa)
-
-## ⛰ Latar Belakang TraveLoGue ⛰
-Terhitung sejak 1 Desember 2021 hingga 30 November 2022, Indonesia terpilih menjadi tuan rumah Presidensi G20. Tujuan utama dibentuknya G20 adalah menemukan solusi bersama atas kondisi ekonomi global. Forum G20 merepresentasikan 80% ekonomi dunia, 75% perdagangan internasional, dan 2/3 populasi dunia. Hal ini menunjukkan betapa pentingnya forum ini dalam menentukan arah kebijakan ekonomi dunia. </br>
-TraveLoGue hadir memanfaatkan momentum presidensi G20 untuk mempromosikan objek pariwisata dan UMKM Indonesia. TraveLoGue mengajak para masyarakat Indonesia untuk ikut serta membagikan keindahan dan keberagaman Indonesia kepada turis asing. Tujuan utama kami yaitu menyediakan wadah bagi warga lokal untuk berbagi perspektif serta rekomendasi aktivitas yang dapat dilakukan saat berkunjung ke kota-kota di Indonesia – dari objek pariwisata yang memiliki nilai historis unik, hingga aneka ragam UMKM lokal yang kreatif. TraveLoGue diharapkan dapat menarik perhatian turis asing untuk mengunjungi dan mengeksplorasi pesona-pesona yang dimiliki Indonesia. Dengan bertambahnya turis asing yang mengunjungi Indonesia, maraknya pengunjung objek pariwisata, serta meningkatnya eksposur UMKM lokal, diharapkan bahwa ekonomi Indonesia pun dapat ikut terbantu.
 
 ## 🔗 Integrasi dengan Situs Web 🔗
 Berikut adalah langkah-langkah yang akan dilakukan untuk mengintegrasikan aplikasi dengan server web:
