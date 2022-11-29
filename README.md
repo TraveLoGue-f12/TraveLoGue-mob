@@ -1,6 +1,7 @@
 [![Staging](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/staging.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/staging.yml)
 [![Pre-Release](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/pre-release.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/pre-release.yml)
 [![Release](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/release.yml/badge.svg)](https://github.com/TraveLoGue-f12/TraveLoGue-mob/actions/workflows/release.yml)
+[![Build status](https://build.appcenter.ms/v0.1/apps/43af980c-7df8-4cc0-9e94-380f90eb19e7/branches/main/badge)](https://appcenter.ms)
 
 
 # TraveLoGue: Panduan Wisata Indonesia
