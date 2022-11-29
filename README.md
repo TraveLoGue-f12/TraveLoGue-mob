@@ -6,6 +6,12 @@
 
 # TraveLoGue: Panduan Wisata Indonesia
 
+**Kini, dapat diakses secara langsung melalui ponsel.**
+
+> Proyek ini dibuat untuk memenuhi tugas Proyek Akhir Semester (PAS)
+> pada mata kuliah Pemrograman Berbasis Platform (CSGE602022) yang
+> diselenggarakan oleh Fakultas Ilmu Komputer, Universitas Indonesia
+> pada Semester Gasal, Tahun Ajaran 2022/2023.
 
 ## 📱 Aplikasi 📱
 Saat ini, hanya tersedia versi Android (APK) untuk diunduh. File APK dapat diunduh di bagian [_releases_](https://github.com/TraveLoGue-f12/TraveLoGue-mob/releases) atau melalui [Microsoft Visual Studio App Center](https://install.appcenter.ms/orgs/travelogue/apps/travelogue/distribution_groups/public).
