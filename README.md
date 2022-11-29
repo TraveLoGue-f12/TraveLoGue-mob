@@ -13,8 +13,8 @@
 * [Muhammad Iqbal Dwitama](https://github.com/iqbaldwitama) (2106750490)
 * [Muhammad Raditya Hanif](https://github.com/radityahnf) (2106750585)
 
-## 🔗 Tautan Aplikasi  🔗
-Kunjungi aplikasi TraveLoGue pada tautan berikut: [TraveLoGue Heroku App](https://trave-lo-gue.herokuapp.com/)
+## 📱 Aplikasi 📱
+Saat ini, hanya tersedia versi Android (APK) untuk diunduh. File APK dapat diunduh di bagian [_releases_](https://github.com/TraveLoGue-f12/TraveLoGue-mob/releases) atau melalui [Microsoft Visual Studio App Center](https://install.appcenter.ms/orgs/travelogue/apps/travelogue/distribution_groups/public).
 
 ## 📝 Pembagian Tugas Modul 📝
 * Recommended Local Shops - [Muhammad Raditya Hanif](https://github.com/radityahnf)
