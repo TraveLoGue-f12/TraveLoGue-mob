@@ -43,7 +43,7 @@ Berikut adalah langkah-langkah yang akan dilakukan untuk mengintegrasikan aplika
 4. Melakukan integrasi antara _front-end_ dengan _back-end_ dengan menggunakan konsep _asynchronous_ HTTP.
 
 ## 📂 Daftar Modul 📂
-Berikut ini beberapa fitur yang disediakan pada situs TraveLoGue:
+Berikut ini beberapa fitur yang disediakan pada aplikasi TraveLoGue:
 ### 🛍 Recommended Local Shops
 Menurut Menteri Koperasi dan UKM, sebanyak 19,5 juta pelaku UMKM dari 65 juta, telah bergerak, terhubung, dan on boarding di bidang digital. Pada fitur ini, terdapat informasi dan rekomendasi terkait UMKM yang ada di Indonesia.
 #### Peran Persona 
