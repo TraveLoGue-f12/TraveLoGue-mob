@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:travelogue/home/signup.dart';
+import 'package:travelogue/home/signupCopy.dart';
 
 import 'home/home.dart';
 import 'home/login.dart';
@@ -25,10 +27,12 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/login",
+        initialRoute: "/signup",
         routes: {
           "/login": ((BuildContext context) => const LoginPage()),
           "/home": ((BuildContext context) => const HomePage()),
+          "/signup": ((BuildContext context) => const SignUpPage()),
+
         },
       ),
     );

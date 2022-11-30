@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (request.loggedIn) {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/signup');
     }
   }
 
