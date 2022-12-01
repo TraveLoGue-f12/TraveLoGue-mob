@@ -10,6 +10,10 @@ void main() {
   runApp(const MyApp());
 }
 
+class LoggedIn{
+  static Map<String,String> user_data = {};
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/signup",
+        initialRoute: "/login",
         routes: {
           "/login": ((BuildContext context) => const LoginPage()),
           "/home": ((BuildContext context) => const HomePage()),

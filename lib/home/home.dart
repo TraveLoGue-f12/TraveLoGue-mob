@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travelogue/main.dart';
+import '../util/fetch.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +20,14 @@ class _HomePageState extends State<HomePage> {
           Text("Home"),
           ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/login');
+                
+                getData(getCred());
+              },
+              child: Text("Get Data")),
+          ElevatedButton(
+              onPressed: () {
+                
+                Navigator.pushReplacementNamed(context, "/login");
               },
               child: Text("Back"))
         ]),

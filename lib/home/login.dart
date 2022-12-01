@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/home.dart';
+import 'package:travelogue/main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,6 +13,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  
+
   final _loginFormKey = GlobalKey<FormState>();
   Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
 
@@ -20,8 +23,9 @@ class _LoginPageState extends State<LoginPage> {
   String statusMessage = "";
 
   void _initLogin(request) async {
+    
     final response =
-        await request.login("https://trave-lo-gue.up.railway.app/auth/login/", {
+        await request.login("https://trave-lo-gue.up.railway.app/auth/register/", {
       'username': username,
       'password': password1,
     }).then((value) {
@@ -37,10 +41,17 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (request.loggedIn) {
+      print(username);
+      print(password1);
+      LoggedIn.user_data['username'] = username;
+      LoggedIn.user_data['password'] = password1;
+      print(LoggedIn.user_data['username']);
+      print(LoggedIn.user_data['password']);
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Login success!"),
       ));
-      Navigator.pushReplacementNamed(context, '/signup');
+      Navigator.pushReplacementNamed(context, '/home');
+      
     }
   }
 
