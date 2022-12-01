@@ -40,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
       },
     );
 
-    print(data);
+   
 
     final response = await request.postJson(
         "https://trave-lo-gue.up.railway.app/auth/register/", data);
@@ -318,20 +318,6 @@ class _SignUpPageState extends State<SignUpPage> {
                           backgroundColor:
                               MaterialStateProperty.all(buttonColor),
                         ),
-                        // onPressed: () async {
-                        //   final response = await request.post(
-                        //       "https://reflekt-io.up.railway.app/registerflutter",
-                        //       {
-                        //         'username': username,
-                        //         'password1': password1,
-                        //         'password2': password2,
-                        //         'email': email,
-
-                        //       });
-                        //   if (_formKey.currentState!.validate()) {
-                        //     print("register berhasil");
-                        //   }
-                        // }
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             _initRegister(request);
