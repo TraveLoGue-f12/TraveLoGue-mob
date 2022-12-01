@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (request.loggedIn) {
-      Navigator.pushReplacementNamed(context, '/forum');
+      Navigator.pushReplacementNamed(context, '/signup');
     }
   }
 
