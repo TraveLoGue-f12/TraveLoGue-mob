@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/signup.dart';
-import 'package:travelogue/home/signupCopy.dart';
 
 import 'home/home.dart';
 import 'home/login.dart';

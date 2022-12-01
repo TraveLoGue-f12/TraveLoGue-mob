@@ -17,6 +17,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
+  Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
 
   String username = "";
   String full_name = "";
@@ -28,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
   String statusMessage = "";
 
   void _initRegister(request) async {
-    String data = convert.jsonEncode(
+    var data = convert.jsonEncode(
       <String, String?>{
         'username': username,
         'password1': password1,
@@ -39,8 +40,31 @@ class _SignUpPageState extends State<SignUpPage> {
       },
     );
 
-    final response = await request.postJson(
-        "https://trave-lo-gue.up.railway.app/auth/register/", data);
+    print(data);
+
+    final response =
+        await request.postJson("https://trave-lo-gue.up.railway.app/auth/register", data);
+
+    if (response['status'] == 'success') {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Account has been successfully registered!"),
+      ));
+      Navigator.pushReplacementNamed(context, '/login');
+    } else if (response['status'] == 'duplicate'){
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Username already exists!"),
+      ));
+    } else if (response['status'] == 'pass failed'){
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Password does not match!"),
+      ));
+    }
+    
+     else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("An error occured, please try again."),
+      ));
+    }
   }
 
   @override
@@ -48,8 +72,8 @@ class _SignUpPageState extends State<SignUpPage> {
     final request = context.watch<CookieRequest>();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Container(
             margin: const EdgeInsets.all(8),
             padding: const EdgeInsets.all(20.0),
@@ -60,6 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 70,
                   width: 70,
                 ),
+                SizedBox(height: 20,),
                 Text(
                   "Sign Up to TraveLoGue",
                   style: TextStyle(
@@ -71,7 +96,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   key: _formKey,
                   child: Column(children: [
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -283,21 +308,36 @@ class _SignUpPageState extends State<SignUpPage> {
                       width: double.infinity,
                       child: ElevatedButton(
                         child: const Text(
-                          "Login",
+                          "Create Account",
                           style: TextStyle(color: Colors.white),
                         ),
                         style: ButtonStyle(
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(14))),
+                          backgroundColor:
+                                    MaterialStateProperty.all(buttonColor),
                         ),
-                        
-                        onPressed: (){
-                          if(_formKey.currentState!.validate()){
+                        // onPressed: () async {
+                        //   final response = await request.post(
+                        //       "https://reflekt-io.up.railway.app/registerflutter",
+                        //       {
+                        //         'username': username,
+                        //         'password1': password1,
+                        //         'password2': password2,
+                        //         'email': email,
+
+                        //       });
+                        //   if (_formKey.currentState!.validate()) {
+                        //     print("register berhasil");
+                        //   }
+                        // }
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
                             _initRegister(request);
-                            print("bisa");
                           }
-                        }
+                          
+                        },
                       ),
                     ),
                     Text(statusMessage)
