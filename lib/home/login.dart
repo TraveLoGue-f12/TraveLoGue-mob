@@ -26,8 +26,7 @@ class _LoginPageState extends State<LoginPage> {
       'password': password1,
     }).then((value) {
       final newValue = new Map<String, dynamic>.from(value);
-      print(newValue['message']);
-
+    
       setState(() {
         if (newValue['message'].toString() ==
             "Failed to Login, check your email/password.") {
