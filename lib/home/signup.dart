@@ -42,25 +42,23 @@ class _SignUpPageState extends State<SignUpPage> {
 
     print(data);
 
-    final response =
-        await request.postJson("https://trave-lo-gue.up.railway.app/auth/register", data);
+    final response = await request.postJson(
+        "https://trave-lo-gue.up.railway.app/auth/register/", data);
 
     if (response['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Account has been successfully registered!"),
       ));
       Navigator.pushReplacementNamed(context, '/login');
-    } else if (response['status'] == 'duplicate'){
+    } else if (response['status'] == 'duplicate') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Username already exists!"),
       ));
-    } else if (response['status'] == 'pass failed'){
+    } else if (response['status'] == 'pass failed') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Password does not match!"),
       ));
-    }
-    
-     else {
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("An error occured, please try again."),
       ));
@@ -84,7 +82,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 70,
                   width: 70,
                 ),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Text(
                   "Sign Up to TraveLoGue",
                   style: TextStyle(
@@ -316,7 +316,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(14))),
                           backgroundColor:
-                                    MaterialStateProperty.all(buttonColor),
+                              MaterialStateProperty.all(buttonColor),
                         ),
                         // onPressed: () async {
                         //   final response = await request.post(
@@ -336,11 +336,21 @@ class _SignUpPageState extends State<SignUpPage> {
                           if (_formKey.currentState!.validate()) {
                             _initRegister(request);
                           }
-                          
                         },
                       ),
                     ),
-                    Text(statusMessage)
+                    Text(statusMessage),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, "/login");
+                        },
+                        child: Text(
+                          "Already have an account? Log in",
+                          style: TextStyle(color: buttonColor),
+                        ))
                   ]),
                 )
               ],

@@ -20,7 +20,8 @@ class _LoginPageState extends State<LoginPage> {
   String statusMessage = "";
 
   void _initLogin(request) async {
-    final response = await request.login("https://trave-lo-gue.up.railway.app/auth/login/", {
+    final response =
+        await request.login("https://trave-lo-gue.up.railway.app/auth/login/", {
       'username': username,
       'password': password1,
     }).then((value) {
@@ -120,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           // Menggunakan padding sebesar 8 pixels
                           padding: const EdgeInsets.all(8.0),
-        
+
                           child: TextFormField(
                             obscureText: true,
                             decoration: InputDecoration(
@@ -166,7 +167,8 @@ class _LoginPageState extends State<LoginPage> {
                               style: ButtonStyle(
                                 shape: MaterialStateProperty.all(
                                     RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(14))),
+                                        borderRadius:
+                                            BorderRadius.circular(14))),
                                 backgroundColor:
                                     MaterialStateProperty.all(buttonColor),
                               ),
@@ -176,7 +178,13 @@ class _LoginPageState extends State<LoginPage> {
                                 }
                               }),
                         ),
-                        Text(statusMessage)
+                        Text(statusMessage),
+                        SizedBox(height: 20,),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(context, "/signup");
+                            },
+                            child: Text("Don't have an account yet? Sign up", style: TextStyle(color: buttonColor),))
                       ]),
                 )),
               ),
