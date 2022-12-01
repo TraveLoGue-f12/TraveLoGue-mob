@@ -1,5 +1,5 @@
 name: travelogue
-description: A new Flutter project.
+description: TraveLoGue invites locals to participate in sharing the beauty and diversity of Indonesia.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -31,6 +31,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # modules
+  umkm:
+    path: umkm
+  event:
+    path: event
+  forum:
+    path: forum
+  attractions:
+    path: attractions
 
 
   # The following adds the Cupertino Icons font to your application.
