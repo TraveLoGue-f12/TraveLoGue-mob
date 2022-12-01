@@ -4,6 +4,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 import 'home/home.dart';
 import 'home/login.dart';
+import 'package:forum/forum.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/login": ((BuildContext context) => const LoginPage()),
           "/home": ((BuildContext context) => const HomePage()),
+          "/forum": ((BuildContext context) => const ForumHomePage()),
         },
       ),
     );
