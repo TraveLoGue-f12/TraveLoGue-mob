@@ -98,31 +98,34 @@ class _UMKMHomePageState extends State<UMKMHomePage> {
                                       fontSize: 16.0,
                                     ),
                                   ),
-                                  trailing: IconButton(
-                                    onPressed: () async {
-                                      var data = convert.jsonEncode(
-                                        <String, String?>{
-                                          'name':
-                                              "${snapshot.data![index].name}",
-                                          'description':
-                                              "${snapshot.data![index].description}",
-                                          'linkWebsite':
-                                              "${snapshot.data![index].linkWebsite}",
-                                        },
-                                      );
-
-                                      final response = await request
-                                          .postJson(
-                                              "https://trave-lo-gue.up.railway.app/local-shops/delete-flutter",
-                                              data);
-                                      Navigator.pushReplacementNamed(
-                                                  context,
-                                                  UMKMHomePage.ROUTE_NAME);
-                                          
-                                              
-                                    },
-                                    icon: Icon(Icons.delete),
-                                    color: buttonColor,
+                                  trailing: Visibility(
+                                    visible: userLoggedIn['status'] == 'L' ? true : false,
+                                    child: IconButton(
+                                      onPressed: () async {
+                                        var data = convert.jsonEncode(
+                                          <String, String?>{
+                                            'name':
+                                                "${snapshot.data![index].name}",
+                                            'description':
+                                                "${snapshot.data![index].description}",
+                                            'linkWebsite':
+                                                "${snapshot.data![index].linkWebsite}",
+                                          },
+                                        );
+                                  
+                                        final response = await request
+                                            .postJson(
+                                                "https://trave-lo-gue.up.railway.app/local-shops/delete-flutter",
+                                                data);
+                                        Navigator.pushReplacementNamed(
+                                                    context,
+                                                    UMKMHomePage.ROUTE_NAME);
+                                            
+                                                
+                                      },
+                                      icon: Icon(Icons.delete),
+                                      color: buttonColor,
+                                    ),
                                   ),
                                 ),
                               )),
