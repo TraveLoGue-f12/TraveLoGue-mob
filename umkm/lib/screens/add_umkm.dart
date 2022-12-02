@@ -3,14 +3,15 @@ library umkm;
 import 'package:flutter/material.dart';
 import 'package:umkm/util/fetch.dart';
 
-class UMKMHomePage extends StatefulWidget {
-  const UMKMHomePage({super.key});
+class AddUMKMPage extends StatefulWidget {
+  static const ROUTE_NAME = "/add_umkm";
+  const AddUMKMPage({super.key});
 
   @override
-  State<UMKMHomePage> createState() => _UMKMHomePageState();
+  State<AddUMKMPage> createState() => _AddUMKMPageState();
 }
 
-class _UMKMHomePageState extends State<UMKMHomePage> {
+class _AddUMKMPageState extends State<AddUMKMPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

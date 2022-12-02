@@ -5,6 +5,8 @@ import 'package:travelogue/home/signup.dart';
 
 import 'home/home.dart';
 import 'home/login.dart';
+import 'package:umkm/screens/add_umkm.dart';
+import 'package:umkm/screens/umkm_home.dart';
 import 'package:forum/forum.dart';
 
 void main() {
@@ -34,9 +36,10 @@ class MyApp extends StatelessWidget {
         initialRoute: "/login",
         routes: {
           "/login": ((BuildContext context) => const LoginPage()),
-          "/home": ((BuildContext context) => const HomePage()),
+          HomePage.ROUTE_NAME: ((BuildContext context) => const HomePage()),
           "/signup": ((BuildContext context) => const SignUpPage()),
-
+          AddUMKMPage.ROUTE_NAME: ((BuildContext context) => const AddUMKMPage()),
+          UMKMHomePage.ROUTE_NAME: ((BuildContext context) => const UMKMHomePage()),
         },
       ),
     );

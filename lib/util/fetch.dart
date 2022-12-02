@@ -22,7 +22,9 @@ getData(loginData) async {
   );
 
   final response =
-      await request.postJson("https://trave-lo-gue.up.railway.app/auth/register/", data);
+      await request.postJson("https://trave-lo-gue.up.railway.app/auth/data/", data);
 
-  print(response);
+  return response;
+
+  
 }
