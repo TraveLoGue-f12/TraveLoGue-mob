@@ -1,5 +1,7 @@
 name: planner
 description: A new Flutter package project.
+publish_to: 'none'
+
 version: 0.0.1
 homepage:
 
@@ -10,6 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^0.13.5
+  travelogue:
+    path: ../.
 
 dev_dependencies:
   flutter_test:
