@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:forum/util/fetch.dart';
 import 'package:forum/page/detail.dart';
 import 'package:intl/intl.dart';
+import 'home/home.dart';
 
 class ForumHomePage extends StatefulWidget {
     const ForumHomePage({super.key});
