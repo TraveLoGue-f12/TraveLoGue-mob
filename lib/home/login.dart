@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
     }).then((value) {
       final newValue = new Map<String, dynamic>.from(value);
     
-      setState(() {
+      setState(() { 
         if (newValue['message'].toString() ==
             "Failed to Login, check your email/password.") {
           statusMessage = "Invalid username/password!";

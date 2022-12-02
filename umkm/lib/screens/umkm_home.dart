@@ -16,11 +16,12 @@ class UMKMHomePage extends StatefulWidget {
 
 class _UMKMHomePageState extends State<UMKMHomePage> {
   var userLoggedIn = LoggedIn.userLoggedIn;
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
+
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(extendBodyBehindAppBar: true,
       floatingActionButton: Visibility(
         child: ElevatedButton(
             onPressed: () {
@@ -30,6 +31,7 @@ class _UMKMHomePageState extends State<UMKMHomePage> {
         visible: userLoggedIn['status'] == 'L' ? true : false,
       ),
       appBar: AppBar(
+        
         title: const Text('Local Shops', style: TextStyle(),),
         
       ),
@@ -64,12 +66,12 @@ class _UMKMHomePageState extends State<UMKMHomePage> {
                                 onTap: () {},
                                 child: Container(
                                   margin: const EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 6),
+                                      horizontal: 16, vertical: 16),
                                   padding: const EdgeInsets.all(20.0),
                                   decoration: BoxDecoration(
                                       color: Colors.white,
-                                      border: Border.all(color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(5.0),
+                                      border: Border.all(color: buttonColor),
+                                      borderRadius: BorderRadius.circular(12.0),
                                       boxShadow: const [
                                         BoxShadow(
                                             color: Color.fromARGB(
