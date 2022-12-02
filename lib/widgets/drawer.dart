@@ -3,6 +3,7 @@ import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
 import 'package:umkm/screens/umkm_home.dart';
+import 'package:forum/forum.dart';
 
 class ScfDrawer extends StatefulWidget {
   const ScfDrawer({
@@ -72,7 +73,7 @@ class _ScfDrawerState extends State<ScfDrawer> {
             ListTile(
               title: const Text('QNA FORUM'),
               onTap: () {
-                
+                Navigator.pushReplacementNamed(context, ForumHomePage.ROUTE_NAME);
               },
             ),
           ],

@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
           "/signup": ((BuildContext context) => const SignUpPage()),
           AddUMKMPage.ROUTE_NAME: ((BuildContext context) => const AddUMKMPage()),
           UMKMHomePage.ROUTE_NAME: ((BuildContext context) => const UMKMHomePage()),
+          ForumHomePage.ROUTE_NAME: ((BuildContext context) => const ForumHomePage()),
         },
       ),
     );

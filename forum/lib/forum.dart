@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:forum/util/fetch.dart';
 import 'package:forum/page/detail.dart';
 import 'package:intl/intl.dart';
-import 'home/home.dart';
+import 'package:travelogue/widgets/drawer.dart';
+import 'package:travelogue/main.dart';
 
 class ForumHomePage extends StatefulWidget {
+    static const ROUTE_NAME = "/forum_home";
     const ForumHomePage({super.key});
 
     @override
@@ -14,12 +16,15 @@ class ForumHomePage extends StatefulWidget {
 }
 
 class _ForumHomePageState extends State<ForumHomePage> {
+    var userLoggedIn = LoggedIn.userLoggedIn;
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
             appBar: AppBar(
                 title: const Text('Travel Forum'),
             ),
+            drawer: ScfDrawer(),
             body: FutureBuilder(
                 future: fetchQuestion(),
                 builder: (context, AsyncSnapshot snapshot) {
@@ -95,6 +100,9 @@ class _ForumHomePageState extends State<ForumHomePage> {
                                                         color: Color(0xFF757575)
                                                     )
                                                 ),
+                                                Text(
+                                                    userLoggedIn!
+                                                )
                                             ]
                                         )
                                     )

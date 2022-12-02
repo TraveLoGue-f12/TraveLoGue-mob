@@ -4,6 +4,7 @@ import 'package:forum/page/detail.dart';
 import 'package:forum/model/question.dart';
 import 'package:forum/forum.dart';
 import 'package:intl/intl.dart';
+import 'package:travelogue/widgets/drawer.dart';
 
 class DetailPage extends StatefulWidget {
     const DetailPage({super.key, required this.modelQuestion});
@@ -23,6 +24,7 @@ class _DetailPageState extends State<DetailPage> {
             appBar: AppBar(
                 title: const Text('Question'),
             ),
+            drawer: ScfDrawer(),
             body: FutureBuilder(
                 future: fetchAnswer(model.pk.toString()),
                 builder: (context, AsyncSnapshot snapshot) {
