@@ -32,21 +32,21 @@ class _AddUMKMPageState extends State<AddUMKMPage> {
         'name': name,
         'description': description,
         'link_website': link_website,
-       
       },
     );
 
-   
-
     final response = await request.postJson(
-        "https://trave-lo-gue.up.railway.app/local-shops/add-flutter/", data);
+        "http://10.0.2.2:8000/local-shops/add-flutter", data);
 
     if (response['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Recommendation has been added!"),
       ));
       Navigator.pushReplacementNamed(context, UMKMHomePage.ROUTE_NAME);
-   
+    } else if (response['status'] == 'dup') {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Recommendation already exists!"),
+      ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("An error occured, please try again."),
@@ -69,13 +69,16 @@ class _AddUMKMPageState extends State<AddUMKMPage> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: Container(
-                    
-                    child: IconButton(onPressed: (){
-                      Navigator.pushReplacementNamed(context, UMKMHomePage.ROUTE_NAME);
-                    }, icon: Icon(Icons.keyboard_arrow_left_sharp),iconSize: 36, ),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context, UMKMHomePage.ROUTE_NAME);
+                      },
+                      icon: Icon(Icons.keyboard_arrow_left_sharp),
+                      iconSize: 36,
+                    ),
                   ),
                 ),
-
                 Image.asset(
                   "assets/images/logo.png",
                   height: 70,
@@ -97,7 +100,6 @@ class _AddUMKMPageState extends State<AddUMKMPage> {
                     SizedBox(
                       height: 20,
                     ),
-                    
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
@@ -194,7 +196,6 @@ class _AddUMKMPageState extends State<AddUMKMPage> {
                         },
                       ),
                     ),
-                   
                     SizedBox(
                       height: 20,
                     ),
@@ -224,7 +225,6 @@ class _AddUMKMPageState extends State<AddUMKMPage> {
                     SizedBox(
                       height: 5,
                     ),
-                   
                   ]),
                 )
               ],
