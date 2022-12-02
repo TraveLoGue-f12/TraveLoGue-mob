@@ -48,6 +48,10 @@ class MyApp extends StatelessWidget {
               const AddUMKMPage()),
           UMKMHomePage.ROUTE_NAME: ((BuildContext context) =>
               const UMKMHomePage()),
+          "/planner": ((BuildContext context) =>
+              const PlannerPage()),
+
+
 
         },
       ),

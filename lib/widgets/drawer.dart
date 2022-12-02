@@ -67,7 +67,9 @@ class _ScfDrawerState extends State<ScfDrawer> {
             
             ListTile(
               title: const Text('MY PLANNER'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacementNamed(context, "/planner");
+              },
             ),
             ListTile(
               title: const Text('QNA FORUM'),
