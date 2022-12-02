@@ -32,9 +32,9 @@ Future<List<Question>> fetchQuestion() async {
     return listQuestion;
 }
 
-/* Future<List<Answer>> fetchAnswer() async {
+Future<List<Answer>> fetchAnswer(String pkQuestion) async {
     var url = Uri.parse(
-        'https://trave-lo-gue.up.railway.app/forum/all_answer_json/');
+        'https://trave-lo-gue.up.railway.app/forum/answer_json/' + pkQuestion);
     var response = await http.get(
         url,
         headers: {
@@ -48,14 +48,14 @@ Future<List<Question>> fetchQuestion() async {
     
     // melakukan konversi data json menjadi object ToDo
     
-    List<UMKM> listAnswer = [];
+    List<Answer> listAnswer = [];
         for (var d in data) {
 
         
         if (d != null) {
-            listAnswer.add(UMKM.fromJson(d));
+            listAnswer.add(Answer.fromJson(d));
         }
         }
     
     return listAnswer;
-} */
+}

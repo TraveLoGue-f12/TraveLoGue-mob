@@ -1,26 +1,30 @@
-library forum;
-
 import 'package:flutter/material.dart';
 import 'package:forum/util/fetch.dart';
 import 'package:forum/page/detail.dart';
+import 'package:forum/model/question.dart';
+import 'package:forum/forum.dart';
 import 'package:intl/intl.dart';
 
-class ForumHomePage extends StatefulWidget {
-    const ForumHomePage({super.key});
+class DetailPage extends StatefulWidget {
+    const DetailPage({super.key, required this.modelQuestion});
+    final Question modelQuestion;
 
     @override
-    State<ForumHomePage> createState() => _ForumHomePageState();
+    State<DetailPage> createState() => _DetailPageState(modelQuestion);
 }
 
-class _ForumHomePageState extends State<ForumHomePage> {
+class _DetailPageState extends State<DetailPage> {
+    Question model;
+    _DetailPageState(this.model);
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
             appBar: AppBar(
-                title: const Text('Travel Forum'),
+                title: const Text('Question'),
             ),
             body: FutureBuilder(
-                future: fetchQuestion(),
+                future: fetchAnswer(model.pk.toString()),
                 builder: (context, AsyncSnapshot snapshot) {
                     if (snapshot.data == null) {
                         return const Center(child: CircularProgressIndicator());
@@ -30,7 +34,7 @@ class _ForumHomePageState extends State<ForumHomePage> {
                             return Column(
                                 children: const [
                                     Text(
-                                        "There is no question yet...",
+                                        "There is no answer yet...",
                                         style: TextStyle(
                                             color: Color(0xff59A5D8),
                                             fontSize: 20,
@@ -44,14 +48,6 @@ class _ForumHomePageState extends State<ForumHomePage> {
                             return ListView.builder(
                                 itemCount: snapshot.data!.length,
                                 itemBuilder: (_, index) => InkWell(
-                                    onTap: () => Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => DetailPage(
-                                                modelQuestion: snapshot.data![index]
-                                            )
-                                        )
-                                    ),
                                     child: Container(
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 16, 
@@ -71,13 +67,7 @@ class _ForumHomePageState extends State<ForumHomePage> {
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                                 Text(
-                                                    "${snapshot.data![index].fields.title}",
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.bold
-                                                    )
-                                                ),
-                                                Text(
-                                                    "${snapshot.data![index].fields.question}",
+                                                    "${snapshot.data![index].fields.answer}",
                                                 ),
                                                 SizedBox(height: 12),
                                                 Text(
