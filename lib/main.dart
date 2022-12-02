@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/signup.dart';
-import 'package:travelogue/home/signupCopy.dart';
 
 import 'home/home.dart';
 import 'home/login.dart';
@@ -10,6 +9,10 @@ import 'package:forum/forum.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class LoggedIn{
+  static Map<String,String> user_data = {};
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/signup",
+        initialRoute: "/login",
         routes: {
           "/login": ((BuildContext context) => const LoginPage()),
           "/home": ((BuildContext context) => const HomePage()),
