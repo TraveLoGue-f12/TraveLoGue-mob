@@ -100,11 +100,8 @@ class _ForumHomePageState extends State<ForumHomePage> {
                                                         color: Color(0xFF757575)
                                                     )
                                                 ),
-                                                Text(
-                                                    userLoggedIn!
-                                                )
                                             ]
-                                        )
+                                        ),
                                     )
                                 )
                             );
