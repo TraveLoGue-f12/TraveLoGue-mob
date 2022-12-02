@@ -36,7 +36,7 @@ class _AddUMKMPageState extends State<AddUMKMPage> {
     );
 
     final response = await request.postJson(
-        "http://10.0.2.2:8000/local-shops/add-flutter", data);
+        "https://trave-lo-gue.up.railway.app/local-shops/add-flutter", data);
 
     if (response['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
