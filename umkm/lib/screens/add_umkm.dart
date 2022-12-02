@@ -7,15 +7,15 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:travelogue/home/login.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class AddUMKMPage extends StatefulWidget {
+  const AddUMKMPage({Key? key}) : super(key: key);
   static const ROUTE_NAME = '/register';
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<AddUMKMPage> createState() => _AddUMKMPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _AddUMKMPageState extends State<AddUMKMPage> {
   final _formKey = GlobalKey<FormState>();
   Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
 
