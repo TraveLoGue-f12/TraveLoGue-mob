@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/home.dart';
 import 'package:travelogue/main.dart';
+import 'package:travelogue/util/fetch.dart';
 import 'package:travelogue/widgets/drawer.dart';
 
 class LoginPage extends StatefulWidget {
@@ -42,9 +43,10 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (request.loggedIn) {
-    
+      
       LoggedIn.user_data['username'] = username;
       LoggedIn.user_data['password'] = password1;
+      LoggedIn.userLoggedIn = await getData(getCred());
       
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Login success!"),

@@ -14,6 +14,7 @@ void main() {
 
 class LoggedIn{
   static Map<String,String> user_data = {};
+  static var userLoggedIn = {};
 }
 
 class MyApp extends StatelessWidget {
