@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/home.dart';
 import 'package:travelogue/main.dart';
+import 'package:travelogue/widgets/drawer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   void _initLogin(request) async {
     
     final response =
-        await request.login("https://trave-lo-gue.up.railway.app/auth/register/", {
+        await request.login("https://trave-lo-gue.up.railway.app/auth/login/", {
       'username': username,
       'password': password1,
     }).then((value) {
@@ -41,12 +42,10 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (request.loggedIn) {
-      print(username);
-      print(password1);
+    
       LoggedIn.user_data['username'] = username;
       LoggedIn.user_data['password'] = password1;
-      print(LoggedIn.user_data['username']);
-      print(LoggedIn.user_data['password']);
+      
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Login success!"),
       ));
@@ -63,6 +62,8 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      
+      
       body: Center(
         child: SingleChildScrollView(
           child: Column(
