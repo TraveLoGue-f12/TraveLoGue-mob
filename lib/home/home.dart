@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
           ElevatedButton(
               onPressed: () async {
                 final userLoggedIn = await getData(getCred());
+                print(userLoggedIn['username']);
                 print(userLoggedIn['status']);
               },
               child: Text("Get Data")),

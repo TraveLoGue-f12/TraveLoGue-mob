@@ -3,8 +3,10 @@ import 'package:forum/util/fetch.dart';
 import 'package:forum/page/detail.dart';
 import 'package:forum/model/question.dart';
 import 'package:forum/forum.dart';
+import 'package:forum/page/add_answer.dart';
 import 'package:intl/intl.dart';
 import 'package:travelogue/widgets/drawer.dart';
+import 'package:travelogue/main.dart';
 
 class DetailPage extends StatefulWidget {
     const DetailPage({super.key, required this.modelQuestion});
@@ -15,12 +17,29 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+    var userLoggedIn = LoggedIn.userLoggedIn;
+
     Question model;
     _DetailPageState(this.model);
 
     @override
     Widget build(BuildContext context) {
         return Scaffold(
+            floatingActionButton: Visibility(
+                child: ElevatedButton(
+                    onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddAnswerPage(
+                                    question: model
+                                )
+                            )
+                        );
+                    },
+                    child: Icon(Icons.add)),
+                visible: userLoggedIn['status'] == 'L' ? true : false,
+            ),
             appBar: AppBar(
                 title: const Text('Question'),
             ),
@@ -32,17 +51,19 @@ class _DetailPageState extends State<DetailPage> {
                         return const Center(child: CircularProgressIndicator());
                     }
                     else {
-                        if (!snapshot.hasData) {
+                        if (model.fields.isAnswered == false) {
                             return Column(
                                 children: const [
-                                    Text(
-                                        "There is no answer yet...",
-                                        style: TextStyle(
-                                            color: Color(0xff59A5D8),
-                                            fontSize: 20,
+                                    SizedBox(height: 50),
+                                    Align(
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                            "There is no answer yet...",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                            )
                                         )
-                                    ),
-                                    SizedBox(height: 8),
+                                    )
                                 ],
                             );
                         }
