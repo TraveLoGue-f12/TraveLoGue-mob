@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
   String statusMessage = "";
 
   void _initLogin(request) async {
-    
+
     final response =
         await request.login("https://trave-lo-gue.up.railway.app/auth/login/", {
       'username': username,
@@ -33,7 +33,9 @@ class _LoginPageState extends State<LoginPage> {
     }).then((value) {
       final newValue = new Map<String, dynamic>.from(value);
     
+
       setState(() {
+
         if (newValue['message'].toString() ==
             "Failed to Login, check your email/password.") {
           statusMessage = "Invalid username/password!";
@@ -43,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (request.loggedIn) {
+
       
       LoggedIn.user_data['username'] = username;
       LoggedIn.user_data['password'] = password1;
@@ -52,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
         content: Text("Login success!"),
       ));
       Navigator.pushReplacementNamed(context, '/home');
-      
+
     }
   }
 
@@ -95,10 +98,12 @@ class _LoginPageState extends State<LoginPage> {
                                 fontSize: 20,
                                 color: Color.fromARGB(178, 3, 3, 3)),
                           ),
+
                         ),
                         SizedBox(
                           height: 30,
                         ),
+
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextFormField(

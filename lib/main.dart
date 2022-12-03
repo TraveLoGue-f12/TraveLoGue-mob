@@ -4,6 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/signup.dart';
 
+import 'package:planner/planner.dart';
+
+
 import 'home/home.dart';
 import 'home/login.dart';
 import 'package:umkm/screens/add_umkm.dart';
@@ -40,11 +43,13 @@ class MyApp extends StatelessWidget {
               generateMaterialColor(color: Color.fromRGBO(254, 185, 0, 100)),
           
         ),
-        initialRoute: "/login",
+        initialRoute: "/signup",
         routes: {
           "/login": ((BuildContext context) => const LoginPage()),
+
           HomePage.ROUTE_NAME: ((BuildContext context) => const HomePage()),
           "/signup": ((BuildContext context) => const SignUpPage()),
+
           AddUMKMPage.ROUTE_NAME: ((BuildContext context) =>
               const AddUMKMPage()),
           UMKMHomePage.ROUTE_NAME: ((BuildContext context) =>
@@ -54,6 +59,9 @@ class MyApp extends StatelessWidget {
               const ForumHomePage()),
           AddQuestionPage.ROUTE_NAME: ((BuildContext context) =>
               const AddQuestionPage()),
+          "/planner": ((BuildContext context) =>
+              const PlannerPage()),
+
         },
       ),
     );

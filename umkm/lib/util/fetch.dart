@@ -22,10 +22,12 @@ Future<List<UMKM>> fetchUMKM() async {
   List<UMKM> listUMKM = [];
     for (var d in data) {
 
-    
+      
+      print(d);
       if (d != null) {
         listUMKM.add(UMKM.fromJson(d));
       }
+     
     }
   
   
