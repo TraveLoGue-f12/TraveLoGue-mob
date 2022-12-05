@@ -3,6 +3,7 @@ import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
 import 'package:umkm/screens/umkm_home.dart';
+import 'package:event/event.dart';
 
 class ScfDrawer extends StatefulWidget {
   const ScfDrawer({
@@ -22,7 +23,19 @@ class _ScfDrawerState extends State<ScfDrawer> {
       child: Drawer(
         child: Column(
           children: [
-         
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, EventHomePage.ROUTE_NAME);
+                  },
+                  icon: Icon(Icons.keyboard_arrow_left_sharp),
+                  iconSize: 36,
+                ),
+              ),
+            ),
             ListTile(
               title: const Text('HOME'),
               onTap: () {
@@ -50,7 +63,7 @@ class _ScfDrawerState extends State<ScfDrawer> {
                       child: Text('ATTRACTIONS'),
                     ),
                     DropdownMenuItem<String>(
-                      value: 'T',
+                      value: EventHomePage.ROUTE_NAME,
                       child: Text('UPCOMING EVENTS'),
                     ),
                   ],

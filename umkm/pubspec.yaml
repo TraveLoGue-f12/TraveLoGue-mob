@@ -16,8 +16,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  url_launcher: ^5.7.10
-
   
   travelogue:
     path: ../.
