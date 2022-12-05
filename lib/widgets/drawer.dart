@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planner/screens/planner.dart';
 import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
@@ -67,7 +68,9 @@ class _ScfDrawerState extends State<ScfDrawer> {
             
             ListTile(
               title: const Text('MY PLANNER'),
-              onTap: () {},
+              onTap: () {
+                 Navigator.pushReplacementNamed(context, PlannerPage.ROUTE_NAME);
+              },
             ),
             ListTile(
               title: const Text('QNA FORUM'),

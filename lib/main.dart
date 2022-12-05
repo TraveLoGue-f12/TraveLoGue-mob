@@ -3,12 +3,13 @@ import 'package:material_color_generator/material_color_generator.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/signup.dart';
-import 'package:planner/planner.dart';
+import 'package:planner/screens/planner.dart';
 
 import 'home/home.dart';
 import 'home/login.dart';
 import 'package:umkm/screens/add_umkm.dart';
 import 'package:umkm/screens/umkm_home.dart';
+import 'package:planner/screens/add_plan.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
           "/login": ((BuildContext context) => const LoginPage()),
           HomePage.ROUTE_NAME: ((BuildContext context) => const HomePage()),
           "/signup": ((BuildContext context) => const SignUpPage()),
-
+          PlannerPage.ROUTE_NAME: ((BuildContext context) => const PlannerPage()),
+          AddPlanPage.ROUTE_NAME: ((BuildContext context) => const AddPlanPage()),
           AddUMKMPage.ROUTE_NAME: ((BuildContext context) =>
               const AddUMKMPage()),
           UMKMHomePage.ROUTE_NAME: ((BuildContext context) =>
