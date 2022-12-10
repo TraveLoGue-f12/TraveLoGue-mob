@@ -3,8 +3,11 @@ import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
 import 'package:umkm/screens/umkm_home.dart';
+
+import 'package:event/event.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+
 
 class ScfDrawer extends StatefulWidget {
   const ScfDrawer({
@@ -23,21 +26,53 @@ class _ScfDrawerState extends State<ScfDrawer> {
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
     return SafeArea(
-      child: Theme(
-        data: Theme.of(context).copyWith(
-                 canvasColor: Color.fromARGB(255, 0, 0, 0), //This will change the drawer background to blue.
-                 //other styles
+      child: Drawer(
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, EventHomePage.ROUTE_NAME);
+                  },
+                  icon: Icon(Icons.keyboard_arrow_left_sharp),
+                  iconSize: 36,
+                ),
               ),
-        child: Drawer(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("TraveLoGue", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 26),),
-                  Text(".", style: TextStyle(color: buttonColor, fontSize: 26, fontWeight: FontWeight.bold),)
+            ),
+            ListTile(
+              title: const Text('HOME'),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, HomePage.ROUTE_NAME);
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15),
+              child: Container(
+                
+                alignment: Alignment.topLeft,
+                child: DropdownButton(
+                  underline: SizedBox(),
+                  isExpanded: true,
+                  hint: const Text("RECOMMENDATIONS", style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 14),),
+                  value: route,
+                  
+                  items: const <DropdownMenuItem<String>>[
+                    DropdownMenuItem<String>(
+                      value: UMKMHomePage.ROUTE_NAME,
+                      child: Text('LOCAL SHOPS'),
+                    ),
+                    DropdownMenuItem<String>(
+                      value: 'L',
+                      child: Text('ATTRACTIONS'),
+                    ),
+                    DropdownMenuItem<String>(
+                      value: EventHomePage.ROUTE_NAME,
+                      child: Text('UPCOMING EVENTS'),
+                    ),
+      
                   ],
                 ),
               ),
