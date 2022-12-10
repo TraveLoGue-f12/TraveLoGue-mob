@@ -6,57 +6,46 @@ import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:travelogue/home/login.dart';
+import 'package:umkm/screens/umkm_home.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class AddUMKMPage extends StatefulWidget {
+  const AddUMKMPage({Key? key}) : super(key: key);
   static const ROUTE_NAME = '/register';
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<AddUMKMPage> createState() => _AddUMKMPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _AddUMKMPageState extends State<AddUMKMPage> {
   final _formKey = GlobalKey<FormState>();
   Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
 
-  String username = "";
-  String full_name = "";
-  String email = "";
-  String password1 = "";
-  String password2 = "";
+  String name = "";
+  String description = "";
+  String link_website = "";
 
-  String? selectedValue = null;
   String statusMessage = "";
 
-  void _initRegister(request) async {
+  void _initCreate(request) async {
     var data = convert.jsonEncode(
       <String, String?>{
-        'username': username,
-        'password1': password1,
-        'password2': password2,
-        'full_name': full_name,
-        'email': email,
-        'status': selectedValue
+        'name': name,
+        'description': description,
+        'link_website': link_website,
       },
     );
 
-   
-
     final response = await request.postJson(
-        "https://trave-lo-gue.up.railway.app/auth/register/", data);
+        "https://trave-lo-gue.up.railway.app/local-shops/add-flutter", data);
 
     if (response['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("Account has been successfully registered!"),
+        content: Text("Recommendation has been added!"),
       ));
-      Navigator.pushReplacementNamed(context, '/login');
-    } else if (response['status'] == 'duplicate') {
+      Navigator.pushReplacementNamed(context, UMKMHomePage.ROUTE_NAME);
+    } else if (response['status'] == 'dup') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("Username already exists!"),
-      ));
-    } else if (response['status'] == 'pass failed') {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("Password does not match!"),
+        content: Text("Recommendation already exists!"),
       ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -77,6 +66,19 @@ class _SignUpPageState extends State<SignUpPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context, UMKMHomePage.ROUTE_NAME);
+                      },
+                      icon: Icon(Icons.keyboard_arrow_left_sharp),
+                      iconSize: 36,
+                    ),
+                  ),
+                ),
                 Image.asset(
                   "assets/images/logo.png",
                   height: 70,
@@ -86,7 +88,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 20,
                 ),
                 Text(
-                  "Sign Up to TraveLoGue",
+                  "Add New Recommendation",
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
@@ -100,45 +102,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: 8),
-                          DropdownButtonFormField(
-                            decoration: InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 12, horizontal: 12),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(16))),
-                            hint: const Text("I am a ..."),
-                            value: selectedValue,
-                            validator: (value) =>
-                                value == null ? "I am a ..." : null,
-                            items: const <DropdownMenuItem<String>>[
-                              DropdownMenuItem<String>(
-                                value: 'T',
-                                child: Text('Tourist'),
-                              ),
-                              DropdownMenuItem<String>(
-                                value: 'L',
-                                child: Text('Local'),
-                              ),
-                            ],
-                            onChanged: (String? value) {
-                              setState(() {
-                                selectedValue = value!;
-                              });
-                            },
-                          ), // <-- SEE HERE
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          labelText: "Full name",
+                          labelText: "Name",
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 12, horizontal: 12),
                           border: OutlineInputBorder(
@@ -148,13 +114,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         // Menambahkan behavior saat nama diketik
                         onChanged: (String? value) {
                           setState(() {
-                            full_name = value!;
+                            name = value!;
                           });
                         },
                         // Menambahkan behavior saat data disimpan
                         onSaved: (String? value) {
                           setState(() {
-                            full_name = value!;
+                            name = value!;
                           });
                         },
                         // Validator sebagai validasi form
@@ -170,7 +136,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          labelText: "Username ",
+                          labelText: "Description",
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 12, horizontal: 12),
                           border: OutlineInputBorder(
@@ -180,13 +146,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         // Menambahkan behavior saat nama diketik
                         onChanged: (String? value) {
                           setState(() {
-                            username = value!;
+                            description = value!;
                           });
                         },
                         // Menambahkan behavior saat data disimpan
                         onSaved: (String? value) {
                           setState(() {
-                            username = value!;
+                            description = value!;
                           });
                         },
                         // Validator sebagai validasi form
@@ -202,7 +168,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          labelText: "Email ",
+                          labelText: "Website Link ",
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 12, horizontal: 12),
                           border: OutlineInputBorder(
@@ -212,83 +178,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         // Menambahkan behavior saat nama diketik
                         onChanged: (String? value) {
                           setState(() {
-                            email = value!;
+                            link_website = value!;
                           });
                         },
                         // Menambahkan behavior saat data disimpan
                         onSaved: (String? value) {
                           setState(() {
-                            email = value!;
-                          });
-                        },
-                        // Validator sebagai validasi form
-                        validator: (String? value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please fill out this field.";
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      // Menggunakan padding sebesar 8 pixels
-                      padding: const EdgeInsets.all(8.0),
-
-                      child: TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: "Password ",
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: 12, horizontal: 12),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                        ),
-                        // Menambahkan behavior saat nama diketik
-                        onChanged: (String? value) {
-                          setState(() {
-                            password1 = value!;
-                          });
-                        },
-                        // Menambahkan behavior saat data disimpan
-                        onSaved: (String? value) {
-                          setState(() {
-                            password1 = value!;
-                          });
-                        },
-                        // Validator sebagai validasi form
-                        validator: (String? value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please fill out this field.";
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      // Menggunakan padding sebesar 8 pixels
-                      padding: const EdgeInsets.all(8.0),
-
-                      child: TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: "Password Confirmation",
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: 12, horizontal: 12),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                        ),
-                        // Menambahkan behavior saat nama diketik
-                        onChanged: (String? value) {
-                          setState(() {
-                            password2 = value!;
-                          });
-                        },
-                        // Menambahkan behavior saat data disimpan
-                        onSaved: (String? value) {
-                          setState(() {
-                            password2 = value!;
+                            link_website = value!;
                           });
                         },
                         // Validator sebagai validasi form
@@ -308,7 +204,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       width: double.infinity,
                       child: ElevatedButton(
                         child: const Text(
-                          "Create Account",
+                          "Add",
                           style: TextStyle(color: Colors.white),
                         ),
                         style: ButtonStyle(
@@ -320,7 +216,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            _initRegister(request);
+                            _initCreate(request);
                           }
                         },
                       ),
@@ -329,14 +225,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     SizedBox(
                       height: 5,
                     ),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(context, "/login");
-                        },
-                        child: Text(
-                          "Already have an account? Log in",
-                          style: TextStyle(color: buttonColor),
-                        ))
                   ]),
                 )
               ],

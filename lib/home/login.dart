@@ -3,6 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/home.dart';
+import 'package:travelogue/main.dart';
+import 'package:travelogue/util/fetch.dart';
+import 'package:travelogue/widgets/drawer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,6 +15,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  
+
   final _loginFormKey = GlobalKey<FormState>();
   Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
 
@@ -20,14 +25,17 @@ class _LoginPageState extends State<LoginPage> {
   String statusMessage = "";
 
   void _initLogin(request) async {
-    final response = await request.login("https://trave-lo-gue.up.railway.app/auth/login/", {
+
+    final response =
+        await request.login("https://trave-lo-gue.up.railway.app/auth/login/", {
       'username': username,
       'password': password1,
     }).then((value) {
       final newValue = new Map<String, dynamic>.from(value);
-      print(newValue['message']);
+    
 
       setState(() {
+
         if (newValue['message'].toString() ==
             "Failed to Login, check your email/password.") {
           statusMessage = "Invalid username/password!";
@@ -37,10 +45,17 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (request.loggedIn) {
+
+      
+      LoggedIn.user_data['username'] = username;
+      LoggedIn.user_data['password'] = password1;
+      LoggedIn.userLoggedIn = await getData(getCred());
+      
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Login success!"),
       ));
-      Navigator.pushReplacementNamed(context, '/signup');
+      Navigator.pushReplacementNamed(context, '/home');
+
     }
   }
 
@@ -52,6 +67,8 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      
+      
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -81,10 +98,12 @@ class _LoginPageState extends State<LoginPage> {
                                 fontSize: 20,
                                 color: Color.fromARGB(178, 3, 3, 3)),
                           ),
+
                         ),
                         SizedBox(
                           height: 30,
                         ),
+
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextFormField(
@@ -120,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           // Menggunakan padding sebesar 8 pixels
                           padding: const EdgeInsets.all(8.0),
-        
+
                           child: TextFormField(
                             obscureText: true,
                             decoration: InputDecoration(
@@ -166,7 +185,8 @@ class _LoginPageState extends State<LoginPage> {
                               style: ButtonStyle(
                                 shape: MaterialStateProperty.all(
                                     RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(14))),
+                                        borderRadius:
+                                            BorderRadius.circular(14))),
                                 backgroundColor:
                                     MaterialStateProperty.all(buttonColor),
                               ),
@@ -176,7 +196,13 @@ class _LoginPageState extends State<LoginPage> {
                                 }
                               }),
                         ),
-                        Text(statusMessage)
+                        Text(statusMessage),
+                        SizedBox(height: 20,),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(context, "/signup");
+                            },
+                            child: Text("Don't have an account yet? Sign up", style: TextStyle(color: buttonColor),))
                       ]),
                 )),
               ),

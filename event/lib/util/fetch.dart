@@ -1,11 +1,11 @@
 // ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../model/umkm_model.dart';
+import '../model/event_model.dart';
 
-Future<List<UMKM>> fetchUMKM() async {
+Future<List<Event>> fetchEvent() async {
   var url = Uri.parse(
-      'https://trave-lo-gue.up.railway.app/local-shops/json/');
+      'https://trave-lo-gue.up.railway.app/event/json/');
   var response = await http.get(
     url,
     headers: {
@@ -19,18 +19,20 @@ Future<List<UMKM>> fetchUMKM() async {
   
   // melakukan konversi data json menjadi object ToDo
   
-  List<UMKM> listUMKM = [];
+  List<Event> listEvent = [];
     for (var d in data) {
 
       
       print(d);
       if (d != null) {
-        listUMKM.add(UMKM.fromJson(d));
+        listEvent.add(Event.fromJson(d));
       }
-     
+      for (int i = 0; i < listEvent.length; i++){
+        print(listEvent[i].toString());
+      }
     }
   
   
 
-  return listUMKM;
+  return listEvent;
 }

@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:material_color_generator/material_color_generator.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:travelogue/home/signup.dart';
 
+import 'package:planner/planner.dart';
+
+
 import 'home/home.dart';
 import 'home/login.dart';
+import 'package:umkm/screens/add_umkm.dart';
+import 'package:umkm/screens/umkm_home.dart';
+import 'package:event/event.dart';
+import 'package:event/page/add_event.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class LoggedIn {
+  static Map<String, String> user_data = {};
+  static var userLoggedIn = {};
 }
 
 class MyApp extends StatelessWidget {
@@ -16,25 +29,39 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Provider(create: (_) {
-                CookieRequest request = CookieRequest();
-                return request;
-            },
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
       child: MaterialApp(
         title: 'TraveLoGue',
         theme: ThemeData(
           fontFamily: 'Poppins',
-          primarySwatch: Colors.blue,
+          primarySwatch:
+              generateMaterialColor(color: Color.fromRGBO(254, 185, 0, 100)),
+          
         ),
         initialRoute: "/signup",
         routes: {
           "/login": ((BuildContext context) => const LoginPage()),
-          "/home": ((BuildContext context) => const HomePage()),
+
+          HomePage.ROUTE_NAME: ((BuildContext context) => const HomePage()),
           "/signup": ((BuildContext context) => const SignUpPage()),
+
+          AddUMKMPage.ROUTE_NAME: ((BuildContext context) =>
+              const AddUMKMPage()),
+          UMKMHomePage.ROUTE_NAME: ((BuildContext context) =>
+              const UMKMHomePage()),
+          "/planner": ((BuildContext context) =>
+              const PlannerPage()),
+          "/event": ((BuildContext context) =>
+          const EventHomePage()),
+          "/add-event": ((BuildContext context) =>
+          const AddEventPage())
 
         },
       ),
     );
   }
 }
-
