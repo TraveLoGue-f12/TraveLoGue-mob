@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../model/event_model.dart';
@@ -26,8 +27,12 @@ Future<List<Event>> fetchEvent() async {
       if (d != null) {
         listEvent.add(Event.fromJson(d));
       }
-     
+      for (int i = 0; i < listEvent.length; i++){
+        print(listEvent[i].toString());
+      }
     }
   
+  
+
   return listEvent;
 }

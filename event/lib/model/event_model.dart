@@ -108,7 +108,7 @@ class Fields {
         required this.category,
     });
 
-    int user;
+    int? user;
     DateTime date;
     String title;
     String description;
