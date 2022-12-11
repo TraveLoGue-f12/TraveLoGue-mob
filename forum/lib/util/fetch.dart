@@ -1,8 +1,10 @@
-// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
+
 import 'dart:convert';
-import '../model/question.dart';
-import '../model/answer.dart';
+
+import 'package:forum/model/question.dart';
+import 'package:forum/model/answer.dart';
+
 
 Future<List<Question>> fetchQuestion() async {
     var url = Uri.parse(
@@ -15,11 +17,8 @@ Future<List<Question>> fetchQuestion() async {
         },
     );
 
-    // melakukan decode response menjadi bentuk json
     var data = jsonDecode(utf8.decode(response.bodyBytes));
-    
-    // melakukan konversi data json menjadi object ToDo
-    
+        
     List<Question> listQuestion = [];
         for (var d in data) {
 
@@ -43,11 +42,8 @@ Future<List<Answer>> fetchAnswer(String pkQuestion) async {
         },
     );
 
-    // melakukan decode response menjadi bentuk json
     var data = jsonDecode(utf8.decode(response.bodyBytes));
-    
-    // melakukan konversi data json menjadi object ToDo
-    
+        
     List<Answer> listAnswer = [];
         for (var d in data) {
 

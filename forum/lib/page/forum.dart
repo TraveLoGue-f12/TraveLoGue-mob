@@ -1,12 +1,18 @@
-library forum;
-
 import 'package:flutter/material.dart';
-import 'package:forum/util/fetch.dart';
-import 'package:forum/page/detail.dart';
-import 'package:forum/page/add_question.dart';
 import 'package:intl/intl.dart';
-import 'package:travelogue/widgets/drawer.dart';
+
+import 'package:forum/util/fetch.dart';
+import 'package:forum/util/delete.dart';
+
+import 'package:forum/page/answers.dart';
+import 'package:forum/page/add_question.dart';
+
 import 'package:travelogue/main.dart';
+import 'package:travelogue/widgets/drawer.dart';
+
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+
 
 class ForumHomePage extends StatefulWidget {
     static const ROUTE_NAME = "/forum_home";
@@ -18,28 +24,23 @@ class ForumHomePage extends StatefulWidget {
 
 class _ForumHomePageState extends State<ForumHomePage> {
     var userLoggedIn = LoggedIn.userLoggedIn;
-    int _counter = 0;
-
-    void _incrementCounter() {
-        setState(() {
-            _counter++;
-        });
-    }
 
     @override
     Widget build(BuildContext context) {
+        final request = context.watch<CookieRequest>();
+
         return Scaffold(
             appBar: AppBar(
                 title: const Text('Travel Forum'),
             ),
             drawer: ScfDrawer(),
             floatingActionButton: Visibility(
+                visible: userLoggedIn['status'] == 'T' ? true : false,
                 child: ElevatedButton(
                     onPressed: () {
                         Navigator.pushReplacementNamed(context, AddQuestionPage.ROUTE_NAME);
                     },
                     child: Icon(Icons.add)),
-                    visible: userLoggedIn['status'] == 'T' ? true : false,
             ),
             body: FutureBuilder(
                 future: fetchQuestion(),
@@ -73,7 +74,7 @@ class _ForumHomePageState extends State<ForumHomePage> {
                                                 onTap: () => Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
-                                                        builder: (context) => DetailPage(
+                                                        builder: (context) => AnswersPage(
                                                             modelQuestion: snapshot.data![index]
                                                         )
                                                     )
@@ -98,31 +99,48 @@ class _ForumHomePageState extends State<ForumHomePage> {
                                                         children: [
                                                             Text(
                                                                 "${snapshot.data![index].fields.title}",
-                                                                style: TextStyle(
+                                                                style: const TextStyle(
                                                                     fontWeight: FontWeight.bold
                                                                 )
                                                             ),
                                                             Text(
                                                                 "${snapshot.data![index].fields.question}",
                                                             ),
-                                                            SizedBox(height: 12),
+                                                            const SizedBox(height: 12),
                                                             Text(
                                                                 "${snapshot.data![index].fields.username}",
-                                                                style: TextStyle(
+                                                                style: const TextStyle(
                                                                     fontSize: 14,
                                                                     color: Color(0xFF757575)
                                                                 )
                                                             ),
                                                             Text(
                                                                 DateFormat.yMMMd().format(snapshot.data![index].fields.date),
-                                                                style: TextStyle(
+                                                                style: const TextStyle(
                                                                     fontSize: 14,
                                                                     color: Color(0xFF757575)
                                                                 )
                                                             ),
+                                                            Row(
+                                                                mainAxisAlignment: MainAxisAlignment.center, 
+                                                                children: [
+                                                                    Visibility(
+                                                                        visible: LoggedIn.user_data['username'] == snapshot.data![index].fields.username ? true : false,
+                                                                        child: IconButton(
+                                                                            onPressed: (() {
+                                                                                deleteQuestion(request, snapshot.data![index]);
+                                                                                Navigator.pushReplacementNamed(context, ForumHomePage.ROUTE_NAME);
+                                                                            }), 
+                                                                            icon: const Icon(Icons.delete),
+                                                                            color: const Color.fromRGBO(254, 185, 0, 100)
+                                                                        )
+                                                                    )
+                                                                ],
+                                                            )
                                                         ]
                                                     ),
-                                                )
+                                                ),
+                                                
                                             )
                                         )
                                     )

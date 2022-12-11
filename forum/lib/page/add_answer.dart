@@ -1,16 +1,18 @@
 import 'dart:convert' as convert;
 
 import 'package:flutter/material.dart';
+
+import 'package:forum/page/forum.dart';
+import 'package:forum/model/question.dart';
+
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:travelogue/home/login.dart';
-import 'package:forum/forum.dart';
-import 'package:forum/model/question.dart';
 
 
 class AddAnswerPage extends StatefulWidget {
     const AddAnswerPage({Key? key, required this.question}) : super(key: key);
     static const ROUTE_NAME = '/add_answer';
+    
     final Question question;
 
     @override
@@ -18,16 +20,15 @@ class AddAnswerPage extends StatefulWidget {
 }
 
 class _AddAnswerPageState extends State<AddAnswerPage> {
+
     final _formKey = GlobalKey<FormState>();
+    
     Question model;
     _AddAnswerPageState(this.model);
-    Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
 
     int question = 0;
     String answer = "";
-
     String statusMessage = "";
-
 
     void _initCreate(request) async {
         var data = convert.jsonEncode(
@@ -68,7 +69,6 @@ class _AddAnswerPageState extends State<AddAnswerPage> {
     @override
     Widget build(BuildContext context) {
         final request = context.watch<CookieRequest>();
-        Size size = MediaQuery.of(context).size;
 
         return Scaffold(
             body: Center(
@@ -80,16 +80,14 @@ class _AddAnswerPageState extends State<AddAnswerPage> {
                             children: [
                                 Align(
                                     alignment: Alignment.topLeft,
-                                    child: Container(
-                                        child: IconButton(
-                                            onPressed: () {
-                                                Navigator.pushReplacementNamed(
-                                                    context, ForumHomePage.ROUTE_NAME
-                                                );
-                                            },
-                                            icon: Icon(Icons.keyboard_arrow_left_sharp),
-                                            iconSize: 36,
-                                        ),
+                                    child: IconButton(
+                                        onPressed: () {
+                                            Navigator.pushReplacementNamed(
+                                                context, ForumHomePage.ROUTE_NAME
+                                            );
+                                        },
+                                        icon: Icon(Icons.keyboard_arrow_left_sharp),
+                                        iconSize: 36,
                                     ),
                                 ),
                                 Image.asset(
@@ -97,12 +95,12 @@ class _AddAnswerPageState extends State<AddAnswerPage> {
                                     height: 70,
                                     width: 70,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                     height: 20,
                                 ),
                                 Text(
                                     "Add New Answer",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 20,
                                         color: Color.fromARGB(178, 3, 3, 3)
@@ -112,7 +110,7 @@ class _AddAnswerPageState extends State<AddAnswerPage> {
                                     key: _formKey,
                                     child: Column(
                                         children: [
-                                            SizedBox(
+                                            const SizedBox(
                                                 height: 20,
                                             ),
                                             Padding(
@@ -141,19 +139,13 @@ class _AddAnswerPageState extends State<AddAnswerPage> {
                                                     },
                                                 ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                                 height: 20,
                                             ),
                                             Container(
                                                 padding: const EdgeInsets.all(8.0),
                                                 width: double.infinity,
                                                 child: ElevatedButton(
-                                                    child: const Text(
-                                                        "Add",
-                                                        style: TextStyle(
-                                                            color: Colors.white
-                                                        ),
-                                                    ),
                                                     style: ButtonStyle(
                                                         shape: MaterialStateProperty.all(
                                                             RoundedRectangleBorder(
@@ -161,21 +153,23 @@ class _AddAnswerPageState extends State<AddAnswerPage> {
                                                             ),
                                                         ),
                                                         backgroundColor: MaterialStateProperty.all(
-                                                            buttonColor
+                                                            const Color.fromRGBO(254, 185, 0, 100)
                                                         ),
                                                     ),
                                                     onPressed: () {
-                                                        print(model.pk.toString());
                                                         if (_formKey.currentState!.validate()) {
                                                             _initCreate(request);
                                                         }
                                                     },
+                                                    child: const Text(
+                                                        "Add",
+                                                        style: TextStyle(
+                                                            color: Colors.white
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                            Text(
-                                                statusMessage
-                                            ),
-                                            SizedBox(
+                                            const SizedBox(
                                                 height: 5
                                             ),
                                         ],

@@ -1,10 +1,12 @@
 import 'dart:convert' as convert;
 
 import 'package:flutter/material.dart';
+
+import 'package:forum/page/forum.dart';
+
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:travelogue/home/login.dart';
-import 'package:forum/forum.dart';
+
 
 class AddQuestionPage extends StatefulWidget {
     const AddQuestionPage({Key? key}) : super(key: key);
@@ -16,11 +18,9 @@ class AddQuestionPage extends StatefulWidget {
 
 class _AddQuestionPageState extends State<AddQuestionPage> {
     final _formKey = GlobalKey<FormState>();
-    Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
 
     String title = "";
     String question = "";
-
     String statusMessage = "";
 
     void _initCreate(request) async {
@@ -62,7 +62,6 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
     @override
     Widget build(BuildContext context) {
         final request = context.watch<CookieRequest>();
-        Size size = MediaQuery.of(context).size;
 
         return Scaffold(
             body: Center(
@@ -74,16 +73,14 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
                             children: [
                                 Align(
                                     alignment: Alignment.topLeft,
-                                    child: Container(
-                                        child: IconButton(
-                                            onPressed: () {
-                                                Navigator.pushReplacementNamed(
-                                                    context, ForumHomePage.ROUTE_NAME
-                                                );
-                                            },
-                                            icon: Icon(Icons.keyboard_arrow_left_sharp),
-                                            iconSize: 36,
-                                        ),
+                                    child: IconButton(
+                                        onPressed: () {
+                                            Navigator.pushReplacementNamed(
+                                                context, ForumHomePage.ROUTE_NAME
+                                            );
+                                        },
+                                        icon: const Icon(Icons.keyboard_arrow_left_sharp),
+                                        iconSize: 36,
                                     ),
                                 ),
                                 Image.asset(
@@ -91,12 +88,12 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
                                     height: 70,
                                     width: 70,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                     height: 20,
                                 ),
                                 Text(
                                     "Add New Question",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 20,
                                         color: Color.fromARGB(178, 3, 3, 3)
@@ -106,7 +103,7 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
                                     key: _formKey,
                                     child: Column(
                                         children: [
-                                            SizedBox(
+                                            const SizedBox(
                                                 height: 20,
                                             ),
                                             Padding(
@@ -169,19 +166,13 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
                                                     },
                                                 ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                                 height: 20,
                                             ),
                                             Container(
                                                 padding: const EdgeInsets.all(8.0),
                                                 width: double.infinity,
                                                 child: ElevatedButton(
-                                                    child: const Text(
-                                                        "Add",
-                                                        style: TextStyle(
-                                                            color: Colors.white
-                                                        ),
-                                                    ),
                                                     style: ButtonStyle(
                                                         shape: MaterialStateProperty.all(
                                                             RoundedRectangleBorder(
@@ -189,7 +180,7 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
                                                             ),
                                                         ),
                                                         backgroundColor: MaterialStateProperty.all(
-                                                            buttonColor
+                                                            const Color.fromRGBO(254, 185, 0, 100)
                                                         ),
                                                     ),
                                                     onPressed: () {
@@ -197,12 +188,15 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
                                                             _initCreate(request);
                                                         }
                                                     },
+                                                    child: const Text(
+                                                        "Add",
+                                                        style: TextStyle(
+                                                            color: Colors.white
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                            Text(
-                                                statusMessage
-                                            ),
-                                            SizedBox(
+                                            const SizedBox(
                                                 height: 5
                                             ),
                                         ],

@@ -3,7 +3,7 @@ import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
 import 'package:umkm/screens/umkm_home.dart';
-import 'package:forum/forum.dart';
+import 'package:forum/page/forum.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
@@ -114,19 +114,20 @@ class _ScfDrawerState extends State<ScfDrawer> {
                   ),
                 ),
               ),
-            ),
-            
-            ListTile(
-              title: const Text('MY PLANNER'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Text('QNA FORUM'),
-              onTap: () {
-                
-              },
-            ),
-          ],
+              ListTile(
+                title: const Text('MY PLANNER', style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, "/planner");
+                },
+              ),
+              ListTile(
+                title: const Text('QNA FORUM', style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, ForumHomePage.ROUTE_NAME);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

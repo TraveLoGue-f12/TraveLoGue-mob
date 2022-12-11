@@ -12,7 +12,7 @@ import 'home/login.dart';
 import 'package:umkm/screens/add_umkm.dart';
 import 'package:umkm/screens/umkm_home.dart';
 
-import 'package:forum/forum.dart';
+import 'package:forum/page/forum.dart';
 import 'package:forum/page/add_question.dart';
 
 void main() {
@@ -59,6 +59,7 @@ class MyApp extends StatelessWidget {
               const ForumHomePage()),
           AddQuestionPage.ROUTE_NAME: ((BuildContext context) =>
               const AddQuestionPage()),
+          
           "/planner": ((BuildContext context) =>
               const PlannerPage()),
 
