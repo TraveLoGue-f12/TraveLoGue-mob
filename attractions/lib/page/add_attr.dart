@@ -22,11 +22,6 @@ class _AddAttractionsPageState extends State<AddAttractionsPage> {
   String _location = "";
   String _url_location = "";
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
   void _initCreate(request) async {
     var data = convert.jsonEncode(
       <String, String?>{
@@ -37,7 +32,7 @@ class _AddAttractionsPageState extends State<AddAttractionsPage> {
       },
     );
 
-    final response = await request.postJson(
+    var response = await request.postJson(
         "https://trave-lo-gue.up.railway.app/attraction/add_flutter/", data);
 
     if (response['status'] == 'success') {
@@ -45,6 +40,10 @@ class _AddAttractionsPageState extends State<AddAttractionsPage> {
         content: Text("Attraction has been added!"),
       ));
       Navigator.pushReplacementNamed(context, "/attractions");
+    } else if (response['status'] == 'dup') {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Attraction already exists!"),
+      ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("An error occured, please try again."),
@@ -136,12 +135,12 @@ class _AddAttractionsPageState extends State<AddAttractionsPage> {
                                 )),
                             onChanged: (String? value) {
                               setState(() {
-                                _title = value!;
+                                _description = value!;
                               });
                             },
                             onSaved: (String? value) {
                               setState(() {
-                                _title = value!;
+                                _description = value!;
                               });
                             },
                             validator: (String? value) {
@@ -163,12 +162,12 @@ class _AddAttractionsPageState extends State<AddAttractionsPage> {
                                 )),
                             onChanged: (String? value) {
                               setState(() {
-                                _title = value!;
+                                _location = value!;
                               });
                             },
                             onSaved: (String? value) {
                               setState(() {
-                                _title = value!;
+                                _location = value!;
                               });
                             },
                             validator: (String? value) {
@@ -190,12 +189,12 @@ class _AddAttractionsPageState extends State<AddAttractionsPage> {
                                 )),
                             onChanged: (String? value) {
                               setState(() {
-                                _title = value!;
+                                _url_location = value!;
                               });
                             },
                             onSaved: (String? value) {
                               setState(() {
-                                _title = value!;
+                                _url_location = value!;
                               });
                             },
                             validator: (String? value) {
