@@ -54,14 +54,7 @@ class _UserEventHomePageState extends State<UserEventHomePage> {
       body: ListView(
         children: [
           Container(
-            // margin: const EdgeInsets.only(top: 18, left: 24, right: 24),
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.start,
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              // children: [
-              //   Expanded(
-              //     child: ListView(
-              //       physics: const BouncingScrollPhysics(),
               children: [
                 Stack(
                   alignment: Alignment.center,
@@ -70,7 +63,6 @@ class _UserEventHomePageState extends State<UserEventHomePage> {
                       alignment: Alignment.center,
                       height: 250,
                       width: double.infinity,
-                      // color: Colors.black.withOpacity(0.2),
                       child: Image.asset(
                         "assets/images/event-header.jpg",
                         fit: BoxFit.fitWidth,
@@ -80,9 +72,6 @@ class _UserEventHomePageState extends State<UserEventHomePage> {
                     Column(
                       children: const [
                         SizedBox(
-                            // width: double.infinity,
-                            // height:
-                            // height: 90,
                             ),
                         Text(
                           'My Events',
@@ -93,8 +82,6 @@ class _UserEventHomePageState extends State<UserEventHomePage> {
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(
-                            // width: double.infinity,
-                            // height: 110,
                             ),
                         Text(
                           'Enjoy your trip to Indonesia by visiting local events. Find the upcoming events here',
@@ -109,13 +96,10 @@ class _UserEventHomePageState extends State<UserEventHomePage> {
                   ],
                 ),
               ],
-              // ),
-              // ),
-              // ],
             ),
           ),
           FutureBuilder(
-              future: fetchEventUser(),
+              future: fetchEventUser(LoggedIn.user_data['username']!),
               builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.data == null) {
                   return const Padding(
@@ -150,8 +134,6 @@ class _UserEventHomePageState extends State<UserEventHomePage> {
                         itemBuilder: (_, index) => Container(
                               margin: const EdgeInsets.only(
                                   top: 18, left: 24, right: 24),
-                              // margin: const EdgeInsets.symmetric(
-                              //       horizontal: 12, vertical: 6),
                               padding: const EdgeInsets.all(10.0),
                               decoration: BoxDecoration(
                                   color: Colors.white,
@@ -165,111 +147,24 @@ class _UserEventHomePageState extends State<UserEventHomePage> {
                                   ]),
                               child: 
                               ListTile(
-                                  // onTap: () {},
                                   title: Text(
                                     "${snapshot.data![index].fields.title}",
                                     style: const TextStyle(
                                       fontSize: 16.0,
                                     ),
                                   ),
-                                  subtitle: 
-                                  // Column(
-                                  //   mainAxisAlignment: MainAxisAlignment.start,
-                                  //   children: [
+                                  subtitle:
                                       Text(
                                         "${snapshot.data![index].fields.place}",
                                         style: const TextStyle(
                                           fontSize: 16.0,
                                         ),
-                                        // textAlign: TextAlign.left,
                                       ),
-                                      // Text(
-                                      //   "Read More ->",
-                                      //   style: const TextStyle(
-                                      //     fontSize: 16.0,
-                                      //     color: Color.fromRGBO(254, 185, 0, 100)
-                                      //   ),
-                                      //   // textAlign: TextAlign.left,
-                                      // ),
-                                  //   ]
-                                  // ),
-                                  trailing: Column(children: [
-                                    // Text(
-                                    //   "Read More ->",
-                                    //   style: const TextStyle(
-                                    //       color:
-                                    //           Color.fromRGBO(254, 185, 0, 100)),
-                                    // ),
-                                    // IconButton(
-                                    //   onPressed: () async {
-                                    //     // var data = convert.jsonEncode(
-                                    //     //   <String, String>{
-                                    //     //     'pk': "${snapshot.data![index].pk}",
-                                    //     //   },
-                                    //     // );
-                                    //     // final response = await request.postJson(
-                                    //     //     "http://localhost:8000/event/edit-flutter",
-                                    //     //     data);
-                                    //     Navigator.push(context, MaterialPageRoute(
-                                    //       builder: ((context) => EditEventPage(
-                                    //         title: snapshot.data![index].fields.title,
-                                    //         description: snapshot.data![index].fields.description,
-                                    //         date: snapshot.data![index].fields.date,
-                                    //         place: snapshot.data![index].fields.place,
-                                    //         category: snapshot.data![index].fields.category,
-                                    //         pk: snapshot.data![index].pk
-                                    //       ))
-                                    //     ));
-                                    //     // Navigator.pushReplacementNamed(
-                                    //     //     context, UserEventHomePage.ROUTE_NAME);
-                                    //     },
-                                    //   icon: Icon(Icons.delete),
-                                    //   color: buttonColor,
-                                    // ),
-                                    IconButton(
-                                      onPressed: () async {
-                                        var data = convert.jsonEncode(
-                                          <String, String>{
-                                            'pk': "${snapshot.data![index].pk}",
-                                          },
-                                        );
-                                        final response = await request.postJson(
-                                            "https://trave-lo-gue.up.railway.app/event/delete-flutter",
-                                            data);
-                                        Navigator.pushReplacementNamed(
-                                            context, UserEventHomePage.ROUTE_NAME);
-                                      },
-                                      icon: Icon(Icons.delete),
-                                      color: buttonColor,
-                                    ),
-                                  ]
-
-                                      //   IconButton(
-                                      //   onPressed: () async {
-                                      //     var data = convert.jsonEncode(
-                                      //       <String, String?>{
-                                      //         'name':
-                                      //             "${snapshot.data![index].name}",
-                                      //         'description':
-                                      //             "${snapshot.data![index].description}",
-                                      //         'linkWebsite':
-                                      //             "${snapshot.data![index].linkWebsite}",
-                                      //       },
-                                      //     );
-
-                                      //     final response = await request
-                                      //         .postJson(
-                                      //             "https://trave-lo-gue.up.railway.app/local-shops/delete-flutter",
-                                      //             data);
-                                      //     Navigator.pushReplacementNamed(
-                                      //                 context,
-                                      //                 UMKMHomePage.ROUTE_NAME);
-
-                                      //   },
-                                      //   icon: Icon(Icons.delete),
-                                      //   color: buttonColor,
-                                      // ),
-                                      ),
+                                  trailing: 
+                                  const Text(
+                                    "Read More ->",
+                                    style: TextStyle(color: Color.fromRGBO(254, 185, 0, 100)),
+                                  ),
                                   onTap: () {
                                     // Route ke detail film
                                     Navigator.push(
@@ -284,31 +179,6 @@ class _UserEventHomePageState extends State<UserEventHomePage> {
                                               )),
                                     );
                                   }
-                                  // trailing: IconButton(
-                                  //   onPressed: () async {
-                                  //     var data = convert.jsonEncode(
-                                  //       <String, String?>{
-                                  //         'name':
-                                  //             "${snapshot.data![index].name}",
-                                  //         'description':
-                                  //             "${snapshot.data![index].description}",
-                                  //         'linkWebsite':
-                                  //             "${snapshot.data![index].linkWebsite}",
-                                  //       },
-                                  //     );
-
-                                  //     final response = await request
-                                  //         .postJson(
-                                  //             "https://trave-lo-gue.up.railway.app/local-shops/delete-flutter",
-                                  //             data);
-                                  //     Navigator.pushReplacementNamed(
-                                  //                 context,
-                                  //                 UMKMHomePage.ROUTE_NAME);
-
-                                  //   },
-                                  //   icon: Icon(Icons.delete),
-                                  //   color: buttonColor,
-                                  // ),
                                   ),
                             ));
                   }

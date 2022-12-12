@@ -34,9 +34,9 @@ import '../model/event_model.dart';
     return listEvent;
   }
 
-Future<List<Event>> fetchEventUser() async {
+Future<List<Event>> fetchEventUser(String username) async {
     // static List<Event> listEventMusic;
-    var url = Uri.parse('https://trave-lo-gue.up.railway.app/event/my-event/json');
+    var url = Uri.parse('https://trave-lo-gue.up.railway.app/event/jsonflutter/$username');
     var response = await http.get(
       url,
       headers: {

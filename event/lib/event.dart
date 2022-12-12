@@ -193,49 +193,9 @@ class _EventHomePageState extends State<EventHomePage> {
                           ),
                           ),
                           visible: userLoggedIn['status'] == 'L' ? true : false,
-                          // onTap: () {
-                          //   Navigator.push(context,
-                          //       MaterialPageRoute(builder: (context) => const UserEventHomePage()));
-                          // },
-                          // // label: const Text('Add Feedback'),
-                          // // icon: const Icon(Icons.add),
-                          
-                          // child: 
-                          // Container(
-                          //   // padding: const EdgeInsets.symmetric(
-                          //   //   vertical: 50,
-                          //   // ),
-                          //   // padding: ,
-                          //   alignment: Alignment.center,
-                          //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          //   // borderRadius: BorderRadius.circular(24),
-                          //   decoration: const BoxDecoration(
-                          //     borderRadius: BorderRadius.all(Radius.circular(10)),
-                          //     color: Color.fromRGBO(254, 185, 0, 100),
-                              
-                          //   ),
-                          //   // color: buttonColor,
-                          //   width: 85,
-                          //   child: Text(
-                          //     'My Event',
-                          //       style: TextStyle(
-                          //       fontSize: 15,
-                          //       fontWeight: FontWeight.bold,
-                          //     ),
-                          //   ),
-                          // ),
-                          // backgroundColor: Colors.blue,
-                          // foregroundColor: Colors.white,
                         ),
                       ),
                     ),
-                    // const Text(
-                    //   'Event Category',
-                    //   style: TextStyle(
-                    //     fontSize: 20,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
                     const SizedBox(height: 16),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -255,10 +215,6 @@ class _EventHomePageState extends State<EventHomePage> {
                               vertical: 36,
                             ),
                             width: 100,
-                            // decoration: BoxDecoration(
-                            //   color: Colors.white,
-                            //   borderRadius: BorderRadius.circular(24),
-                            // ),
                             child: Column(
                               children: [
                                 ClipRRect(
@@ -295,10 +251,6 @@ class _EventHomePageState extends State<EventHomePage> {
                               vertical: 36,
                             ),
                             width: 100,
-                            // decoration: BoxDecoration(
-                            //   color: Colors.white,
-                            //   borderRadius: BorderRadius.circular(24),
-                            // ),
                             child: Column(
                               children: [
                                 ClipRRect(
@@ -333,10 +285,6 @@ class _EventHomePageState extends State<EventHomePage> {
                               vertical: 10,
                             ),
                             width: 100,
-                            // decoration: BoxDecoration(
-                            //   color: Colors.white,
-                            //   borderRadius: BorderRadius.circular(24),
-                            // ),
                             child: Column(
                               children: [
                                 ClipRRect(
@@ -377,10 +325,6 @@ class _EventHomePageState extends State<EventHomePage> {
                               vertical: 36,
                             ),
                             width: 100,
-                            // decoration: BoxDecoration(
-                            //   color: Colors.white,
-                            //   borderRadius: BorderRadius.circular(24),
-                            // ),
                             child: Column(
                               children: [
                                 ClipRRect(
@@ -415,10 +359,6 @@ class _EventHomePageState extends State<EventHomePage> {
                               vertical: 36,
                             ),
                             width: 100,
-                            // decoration: BoxDecoration(
-                            //   color: Colors.white,
-                            //   borderRadius: BorderRadius.circular(24),
-                            // ),
                             child: Column(
                               children: [
                                 ClipRRect(
@@ -453,10 +393,6 @@ class _EventHomePageState extends State<EventHomePage> {
                               vertical: 10,
                             ),
                             width: 100,
-                            // decoration: BoxDecoration(
-                            //   color: Colors.white,
-                            //   borderRadius: BorderRadius.circular(24),
-                            // ),
                             child: Column(
                               children: [
                                 ClipRRect(
@@ -530,8 +466,6 @@ class _EventHomePageState extends State<EventHomePage> {
                         itemBuilder: (_, index) => 
                         Container(
                               margin: const EdgeInsets.only(top: 18, left: 24, right: 24),
-                              // margin: const EdgeInsets.symmetric(
-                              //       horizontal: 12, vertical: 6),
                                 padding: const EdgeInsets.all(10.0),
                                 decoration: BoxDecoration(
                                     color: Colors.white,
@@ -557,10 +491,13 @@ class _EventHomePageState extends State<EventHomePage> {
                                       fontSize: 16.0,
                                     ),
                                   ),
-                                  trailing: Text(
+                                  trailing: 
+                                  const Text(
                                     "Read More ->",
-                                    style: const TextStyle(color: Color.fromRGBO(254, 185, 0, 100)),
+                                    style: TextStyle(color: Color.fromRGBO(254, 185, 0, 100)),
                                   ),
+                                  
+                                  
                                   onTap: () {
                                     // Route ke detail film
                                     Navigator.push(
@@ -575,32 +512,6 @@ class _EventHomePageState extends State<EventHomePage> {
                                           )),
                                     );
                                   }
-                                  // trailing: IconButton(
-                                  //   onPressed: () async {
-                                  //     var data = convert.jsonEncode(
-                                  //       <String, String?>{
-                                  //         'name':
-                                  //             "${snapshot.data![index].name}",
-                                  //         'description':
-                                  //             "${snapshot.data![index].description}",
-                                  //         'linkWebsite':
-                                  //             "${snapshot.data![index].linkWebsite}",
-                                  //       },
-                                  //     );
-
-                                  //     final response = await request
-                                  //         .postJson(
-                                  //             "https://trave-lo-gue.up.railway.app/local-shops/delete-flutter",
-                                  //             data);
-                                  //     Navigator.pushReplacementNamed(
-                                  //                 context,
-                                  //                 UMKMHomePage.ROUTE_NAME);
-                                          
-                                              
-                                  //   },
-                                  //   icon: Icon(Icons.delete),
-                                  //   color: buttonColor,
-                                  // ),
                                 ),
                             )
                       );
