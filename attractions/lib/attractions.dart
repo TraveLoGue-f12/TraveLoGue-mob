@@ -6,6 +6,7 @@ import 'package:travelogue/main.dart';
 import 'package:travelogue/widgets/drawer.dart';
 import 'package:attractions/util/fetch.dart';
 import 'package:attractions/model/attractions_model.dart';
+import 'package:attractions/page/detail_attr.dart';
 
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -67,41 +68,55 @@ class _AttractionsPageState extends State<AttractionsPage> {
                 children: [
                   Expanded(
                     child: ListView.builder(
-                        itemCount: snapshot.data!.length,
-                        // gridDelegate:
-                        //     SliverGridDelegateWithFixedCrossAxisCount(
-                        //         crossAxisCount: 2),
-                        itemBuilder: (_, index) => Container(
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 6),
-                              padding: const EdgeInsets.all(10.0),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(color: buttonColor),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                        color:
-                                            Color.fromARGB(255, 180, 167, 167),
-                                        blurRadius: 1.0)
-                                  ]),
-                              child: ListTile(
-                                onTap: () {},
-                                title: Text(
-                                  "${snapshot.data![index].fields.title}",
-                                  style: const TextStyle(
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                                subtitle: Text(
-                                  "${snapshot.data![index].fields.location}",
-                                  style: const TextStyle(
-                                    fontSize: 16.0,
-                                  ),
+                      itemCount: snapshot.data!.length,
+                      // gridDelegate:
+                      //     SliverGridDelegateWithFixedCrossAxisCount(
+                      //         crossAxisCount: 2),
+                      itemBuilder: (_, index) => Container(
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 6),
+                          padding: const EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: buttonColor),
+                              borderRadius: BorderRadius.circular(12.0),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 180, 167, 167),
+                                    blurRadius: 1.0)
+                              ]),
+                          child: ListTile(
+                              onTap: () {},
+                              title: Text(
+                                "${snapshot.data![index].fields.title}",
+                                style: const TextStyle(
+                                  fontSize: 16.0,
                                 ),
                               ),
-                            )),
-                  ),
+                              subtitle: Text(
+                                "${snapshot.data![index].fields.location}",
+                                style: const TextStyle(
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                              trailing: GestureDetector(
+                                onTap: () {},
+                                child: IconButton(
+                                  icon:
+                                      Icon(Icons.keyboard_arrow_right_rounded),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetailAttractionsPage(
+                                                    attraction: snapshot
+                                                        .data![index])));
+                                  },
+                                ),
+                              ))),
+                    ),
+                  )
                 ],
               );
             }
