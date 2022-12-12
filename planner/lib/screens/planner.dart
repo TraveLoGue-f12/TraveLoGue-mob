@@ -4,8 +4,9 @@ import 'package:planner/screens/add_plan.dart';
 import 'package:planner/screens/edit_plan.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
-import 'package:planner/util/fetch_plan.dart';
+import 'package:planner/util/fetch.dart';
 import 'package:planner/util/delete_plan.dart';
+import 'package:travelogue/main.dart';
 import 'package:travelogue/widgets/drawer.dart';
 
 class PlannerPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _PlannerPageState extends State<PlannerPage> {
       ),
       drawer: const ScfDrawer(), 
       body: FutureBuilder(
-        future: fetchPlans(),
+        future: fetch(LoggedIn.user_data['username']!),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
