@@ -53,7 +53,7 @@ class _EditPlanPageState extends State<EditPlanPage> {
 
     if (response['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("New plan successfully added!"),
+        content: Text("Plan successfully edited!"),
       ));
       Navigator.pushReplacementNamed(context, PlannerPage.ROUTE_NAME);
     } else {
