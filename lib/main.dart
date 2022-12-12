@@ -16,6 +16,9 @@ import 'package:event/page/add_event.dart';
 import 'package:attractions/attractions.dart';
 import 'package:attractions/page/add_attr.dart';
 
+import 'package:forum/page/forum.dart';
+import 'package:forum/page/add_question.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -57,6 +60,12 @@ class MyApp extends StatelessWidget {
               const AddUMKMPage()),
           UMKMHomePage.ROUTE_NAME: ((BuildContext context) =>
               const UMKMHomePage()),
+
+          ForumHomePage.ROUTE_NAME: ((BuildContext context) => 
+              const ForumHomePage()),
+          AddQuestionPage.ROUTE_NAME: ((BuildContext context) =>
+              const AddQuestionPage()),
+          
           "/planner": ((BuildContext context) =>
               const PlannerPage()),
           "/event": ((BuildContext context) =>

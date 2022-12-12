@@ -5,6 +5,7 @@ import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
 import 'package:umkm/screens/umkm_home.dart';
+import 'package:forum/page/forum.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:attractions/attractions.dart';
@@ -125,7 +126,9 @@ class _ScfDrawerState extends State<ScfDrawer> {
               ),
               ListTile(
                 title: const Text('QNA FORUM', style: TextStyle(color: Colors.white)),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, ForumHomePage.ROUTE_NAME);
+                },
               ),
             ],
           ),
