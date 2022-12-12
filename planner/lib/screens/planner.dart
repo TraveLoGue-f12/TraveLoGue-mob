@@ -96,15 +96,6 @@ class _PlannerPageState extends State<PlannerPage> {
                               foregroundColor: Colors.white,
                               icon: Icons.edit
                             ),
-                            SlidableAction(
-                              onPressed: ((context) {
-                                deletePlan(request, snapshot.data![index]);
-                                Navigator.pushReplacementNamed(context, PlannerPage.ROUTE_NAME);
-                              }),
-                              backgroundColor: Colors.red[600]!,
-                              foregroundColor: Colors.white,
-                              icon: Icons.delete
-                            ),
                           ]
                         ), 
                         child: Container(
