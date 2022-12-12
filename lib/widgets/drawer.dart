@@ -1,11 +1,15 @@
 import 'package:event/event.dart';
 import 'package:flutter/material.dart';
+import 'package:planner/screens/planner.dart';
 import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
 import 'package:umkm/screens/umkm_home.dart';
+import 'package:forum/page/forum.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:attractions/attractions.dart';
+import 'package:attractions/page/add_attr.dart';
 
 
 class ScfDrawer extends StatefulWidget {
@@ -98,7 +102,7 @@ class _ScfDrawerState extends State<ScfDrawer> {
                         child: Text('LOCAL SHOPS', style: TextStyle(color: Colors.white)),
                       ),
                       DropdownMenuItem<String>(
-                        value: 'L',
+                        value: '/attractions',
                         child: Text('ATTRACTIONS', style: TextStyle(color: Colors.white)),
                       ),
                       DropdownMenuItem<String>(
@@ -118,12 +122,14 @@ class _ScfDrawerState extends State<ScfDrawer> {
               ListTile(
                 title: const Text('MY PLANNER', style: TextStyle(color: Colors.white)),
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, "/planner");
+                  Navigator.pushReplacementNamed(context, PlannerPage.ROUTE_NAME);
                 },
               ),
               ListTile(
                 title: const Text('QNA FORUM', style: TextStyle(color: Colors.white)),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, ForumHomePage.ROUTE_NAME);
+                },
               ),
             ],
           ),

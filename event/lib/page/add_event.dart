@@ -52,22 +52,48 @@ class _AddEventPageState extends State<AddEventPage> {
     );
 
     final response = await request.postJson(
-        "https://trave-lo-gue.up.railway.app/event/add-flutter", data);
+            "https://trave-lo-gue.up.railway.app/event/add-flutter", data
+        );
 
     if (response['status'] == 'success') {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("Recommendation has been added!"),
-      ));
-      Navigator.pushReplacementNamed(context, EventHomePage.ROUTE_NAME);
-    } else if (response['status'] == 'dup') {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("Recommendation already exists!"),
-      ));
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("An error occured, please try again."),
-      ));
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text("Event has been added!"),
+            )
+        );
+        Navigator.pushReplacementNamed(context, EventHomePage.ROUTE_NAME);
     }
+    else if (response['status'] == 'dup') {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text("Event already exists!"),
+            )
+        );
+    }
+    else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text("An error occured, please try again."),
+            )
+        );
+    }
+    // final response = await request.postJson(
+    //     "https://trave-lo-gue.up.railway.app/event/add-flutter", data);
+
+    // if (response['status'] == 'success') {
+    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+    //     content: Text("Recommendation has been added!"),
+    //   ));
+    //   Navigator.pushReplacementNamed(context, EventHomePage.ROUTE_NAME);
+    // } else if (response['status'] == 'dup') {
+    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+    //     content: Text("Recommendation already exists!"),
+    //   ));
+    // } else {
+    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+    //     content: Text("An error occured, please try again."),
+    //   ));
+    // }
   }
 
   @override

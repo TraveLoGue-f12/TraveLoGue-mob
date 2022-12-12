@@ -13,11 +13,12 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  intl: ^0.17.0
   flutter:
     sdk: flutter
 
-travelogue:
-    path: ../.
+  travelogue:
+      path: ../.
     
 dev_dependencies:
   flutter_test:
