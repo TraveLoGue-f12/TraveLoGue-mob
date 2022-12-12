@@ -1,11 +1,15 @@
 library event;
 
+<<<<<<< HEAD
 import 'package:event/page/event_detail.dart';
+=======
+>>>>>>> c1f32fa7850e8335dbffe016361eb1b779d69d7d
 import 'package:flutter/material.dart';
 import 'package:travelogue/main.dart';
 import 'package:travelogue/widgets/drawer.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:event/page/add_event.dart';
+<<<<<<< HEAD
 import 'package:event/page/user_event.dart';
 import 'package:event/page/music_event.dart';
 import 'package:event/page/festival_event.dart';
@@ -13,6 +17,8 @@ import 'package:event/page/culinary_event.dart';
 import 'package:event/page/culture_event.dart';
 import 'package:event/page/sport_event.dart';
 import 'package:event/page/others_event.dart';
+=======
+>>>>>>> c1f32fa7850e8335dbffe016361eb1b779d69d7d
 import 'package:event/util/fetch.dart';
 import 'package:provider/provider.dart';
 import 'dart:convert' as convert;
@@ -33,6 +39,7 @@ class _EventHomePageState extends State<EventHomePage> {
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
     return Scaffold(
+<<<<<<< HEAD
       floatingActionButton: 
       Visibility(
         child: FloatingActionButton.extended(
@@ -67,6 +74,16 @@ class _EventHomePageState extends State<EventHomePage> {
       //       child: Icon(Icons.add)),
       //   visible: userLoggedIn['status'] == 'L' ? true : false,
       // ),
+=======
+      floatingActionButton: Visibility(
+        child: ElevatedButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, AddEventPage.ROUTE_NAME);
+            },
+            child: Icon(Icons.add)),
+        visible: userLoggedIn['status'] == 'L' ? true : false,
+      ),
+>>>>>>> c1f32fa7850e8335dbffe016361eb1b779d69d7d
       appBar: AppBar(
         title: const Text(
           'Upcoming Events',
@@ -74,6 +91,7 @@ class _EventHomePageState extends State<EventHomePage> {
         ),
       ),
       drawer: ScfDrawer(),
+<<<<<<< HEAD
       body: 
       ListView( 
       children: [
@@ -532,6 +550,40 @@ class _EventHomePageState extends State<EventHomePage> {
                               margin: const EdgeInsets.only(top: 18, left: 24, right: 24),
                               // margin: const EdgeInsets.symmetric(
                               //       horizontal: 12, vertical: 6),
+=======
+      body: FutureBuilder(
+          future: fetchEvent(),
+          builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.data == null) {
+              return const Center(
+                  child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                          Color.fromRGBO(254, 185, 0, 100))));
+            } else {
+              if (!snapshot.hasData) {
+                return Column(
+                  children: const [
+                    Text(
+                      "There is no data yet :(",
+                      style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                    ),
+                    SizedBox(height: 8),
+                  ],
+                );
+              } else {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                          itemCount: snapshot.data!.length,
+                          // gridDelegate:
+                          //     SliverGridDelegateWithFixedCrossAxisCount(
+                          //         crossAxisCount: 2),
+                          itemBuilder: (_, index) => Container(
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: 12, vertical: 6),
+>>>>>>> c1f32fa7850e8335dbffe016361eb1b779d69d7d
                                 padding: const EdgeInsets.all(10.0),
                                 decoration: BoxDecoration(
                                     color: Colors.white,
@@ -543,6 +595,7 @@ class _EventHomePageState extends State<EventHomePage> {
                                               255, 180, 167, 167),
                                           blurRadius: 1.0)
                                     ]),
+<<<<<<< HEAD
                                 child: ListTile(
                                   // onTap: () {},
                                   title: Text(
@@ -611,3 +664,35 @@ class _EventHomePageState extends State<EventHomePage> {
     );
   }
 }
+=======
+                                // child: ListTile(
+                                //   // onTap: () {},
+                                //   title: Text(
+                                //     "${snapshot.data![index].fields.title}",
+                                //     style: const TextStyle(
+                                //       fontSize: 16.0,
+                                //     ),
+                                //   ),
+                                //   subtitle: Text(
+                                //     "${snapshot.data![index].fields.place}",
+                                //     style: const TextStyle(
+                                //       fontSize: 16.0,
+                                //     ),
+                                //   ),
+                              )),
+                    ),
+                  ],
+                );
+              }
+            }
+          }),
+    );
+  }
+}
+
+// /// A Calculator.
+// class Calculator {
+//   /// Returns [value] plus 1.
+//   int addOne(int value) => value + 1;
+// }
+>>>>>>> c1f32fa7850e8335dbffe016361eb1b779d69d7d
