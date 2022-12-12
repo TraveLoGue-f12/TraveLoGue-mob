@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:planner/screens/add_plan.dart';
+import 'package:planner/screens/edit_plan.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
-import 'dart:convert' as convert;
 import 'package:planner/util/fetch_plan.dart';
 import 'package:planner/util/delete_plan.dart';
 import 'package:travelogue/widgets/drawer.dart';
@@ -56,16 +56,13 @@ class _PlannerPageState extends State<PlannerPage> {
                 itemCount: snapshot.data!.length,
                 padding: const EdgeInsets.all(16.0),
                 itemBuilder: (_, index) => GestureDetector(
-                  // onTap: () {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => WatchlistDetail(
-                  //         watchlistItem: snapshot.data![index],
-                  //       ),
-                  //     )
-                  //   );                    
-                  // },
+                  onTap:() {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: ((context) => EditPlanPage(
+                        plan: snapshot.data![index]
+                      ))
+                    ));
+                  },
                   child: ClipPath(
                     clipper: const ShapeBorderClipper(
                       shape: RoundedRectangleBorder(
@@ -88,7 +85,13 @@ class _PlannerPageState extends State<PlannerPage> {
                           motion: const ScrollMotion(),
                           children: [
                             SlidableAction(
-                              onPressed: null,
+                              onPressed: (((context) {
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: ((context) => EditPlanPage(
+                                    plan: snapshot.data![index]
+                                  ))
+                                ));
+                              })),
                               backgroundColor: Colors.orange[700]!,
                               foregroundColor: Colors.white,
                               icon: Icons.edit

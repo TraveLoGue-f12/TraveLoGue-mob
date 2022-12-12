@@ -5,11 +5,11 @@ import 'dart:convert';
 Future<List<Plan>> fetchPlans() async {
   var url = Uri.parse('https://trave-lo-gue.up.railway.app/planner/json');
   var response = await http.get(
-  url,
-  headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-  },
+    url,
+    headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+    },
   );
 
   var data = jsonDecode(utf8.decode(response.bodyBytes));

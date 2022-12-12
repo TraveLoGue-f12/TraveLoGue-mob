@@ -3,16 +3,18 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'dart:convert' as convert;
 import 'package:planner/screens/planner.dart';
+import 'package:planner/models/plan.dart';
 
-class AddPlanPage extends StatefulWidget {
-  static const ROUTE_NAME = "/addplanner";
-  const AddPlanPage({Key? key}) : super(key: key);
- 
+class EditPlanPage extends StatefulWidget {
+  static const ROUTE_NAME = "/editplanner";
+  const EditPlanPage({super.key, required this.plan});
+  final Plan plan;
+
   @override
-  State<AddPlanPage> createState() => _AddPlanPageState();
+  State<EditPlanPage> createState() => _EditPlanPageState();
 }
 
-class _AddPlanPageState extends State<AddPlanPage> {
+class _EditPlanPageState extends State<EditPlanPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _textEditingController = TextEditingController();
   DateTimeRange? dateRange;
@@ -23,20 +25,30 @@ class _AddPlanPageState extends State<AddPlanPage> {
   String notes = "";
   String image = "";
 
-  void _initCreate(request) async {
+  @override
+  void initState() {
+    super.initState();
+    _textEditingController.text = widget.plan.fields.tripDate;
+    name = widget.plan.fields.name;
+    tripDate = widget.plan.fields.tripDate;
+    startDate = widget.plan.fields.startDate;
+    endDate = widget.plan.fields.endDate;
+    notes = widget.plan.fields.notes;
+  }
+  void _initEdit(request) async {
     var data = convert.jsonEncode(
       <String, String?>{
+        "pk": widget.plan.pk.toString(),
         "name": name,
         "trip_date": tripDate,
         "start_date": "${startDate.year.toString().padLeft(4, '0')}-${startDate.month.toString().padLeft(2, '0')}-${startDate.day.toString().padLeft(2, '0')}",
         "end_date": "${endDate.year.toString().padLeft(4, '0')}-${endDate.month.toString().padLeft(2, '0')}-${endDate.day.toString().padLeft(2, '0')}",
-        "notes": notes,
-        "image": image,      
+        "notes": notes,     
       },
     );
 
     final response = await request.postJson(
-      "https://trave-lo-gue.up.railway.app/planner/addflutter/", data
+      "https://trave-lo-gue.up.railway.app/planner/editflutter/", data
     );
 
     if (response['status'] == 'success') {
@@ -52,9 +64,10 @@ class _AddPlanPageState extends State<AddPlanPage> {
   }
 
   Future pickDateRange(BuildContext context) async {
+    _textEditingController.text = widget.plan.fields.tripDate;
     final initialDateRange = DateTimeRange(
-      start: DateTime.now(),
-      end: DateTime.now().add(const Duration(days: 3)),
+      start: widget.plan.fields.startDate,
+      end: widget.plan.fields.endDate,
     );
 
     final newDateRange = await showDateRangePicker(
@@ -88,7 +101,7 @@ class _AddPlanPageState extends State<AddPlanPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add New Plan"),
+        title: const Text("Edit Plan"),
         leading: IconButton(
           onPressed: () {Navigator.pushReplacementNamed(context, PlannerPage.ROUTE_NAME);},
           icon: const Icon(Icons.arrow_back_ios_new),
@@ -97,7 +110,7 @@ class _AddPlanPageState extends State<AddPlanPage> {
           TextButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                _initCreate(request);
+                _initEdit(request);
               }
             }, 
             child: const Text('SAVE', style: TextStyle(color: Colors.black))
@@ -118,10 +131,11 @@ class _AddPlanPageState extends State<AddPlanPage> {
                         borderRadius: BorderRadius.circular(20.0),
                     ),
                 ),
+                initialValue: widget.plan.fields.name,
                 // Menambahkan behavior saat nama diketik 
-                onChanged: (String? value) {
+                onChanged: (String value) {
                     setState(() {
-                        name = value!;
+                        name = value;
                     });
                 },
                 // Menambahkan behavior saat data disimpan
@@ -153,6 +167,7 @@ class _AddPlanPageState extends State<AddPlanPage> {
                 onTap: () {
                   pickDateRange(context);
                 },
+
               ),
 
               const SizedBox(height:30),
@@ -165,6 +180,7 @@ class _AddPlanPageState extends State<AddPlanPage> {
                       borderRadius: BorderRadius.circular(10.0),
                   ),
                 ), 
+                initialValue: widget.plan.fields.notes,
                 onChanged: (String? value) {
                     setState(() {
                         notes = value!;
