@@ -85,7 +85,44 @@ class _UMKMHomePageState extends State<UMKMHomePage> {
                                           blurRadius: 1.0)
                                     ]),
                                 child: ListTile(
-                                  onTap: () {},
+                                  onTap: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (_) => AlertDialog(
+                                            scrollable: true,
+                                            content: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(5.0),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "${snapshot.data![index].name}",
+                                                      style: const TextStyle(
+                                                          fontSize: 16,
+                                                          color: Colors.black),
+                                                    ),
+                                                    Text(
+                                                      "${snapshot.data![index].description}",
+                                                      style: const TextStyle(
+                                                          fontSize: 16,
+                                                          color: Colors.black),
+                                                    ),
+                                                    Text(
+                                                      "${snapshot.data![index].linkWebsite}",
+                                                      style: const TextStyle(
+                                                          fontSize: 16,
+                                                          color: Colors.black),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            )));
+                                  },
                                   title: Text(
                                     "${snapshot.data![index].name}",
                                     style: const TextStyle(
@@ -98,31 +135,31 @@ class _UMKMHomePageState extends State<UMKMHomePage> {
                                       fontSize: 16.0,
                                     ),
                                   ),
-                                  trailing: IconButton(
-                                    onPressed: () async {
-                                      var data = convert.jsonEncode(
-                                        <String, String?>{
-                                          'name':
-                                              "${snapshot.data![index].name}",
-                                          'description':
-                                              "${snapshot.data![index].description}",
-                                          'linkWebsite':
-                                              "${snapshot.data![index].linkWebsite}",
-                                        },
-                                      );
+                                  trailing: Visibility(
+                                    visible: userLoggedIn['status'] == 'L'
+                                        ? true
+                                        : false,
+                                    child: IconButton(
+                                      onPressed: () async {
+                                        var data = convert.jsonEncode(
+                                          <String, String?>{
+                                            'name':
+                                                "${snapshot.data![index].name}",
+                                            'description':
+                                                "${snapshot.data![index].description}",
+                                            'linkWebsite':
+                                                "${snapshot.data![index].linkWebsite}",
+                                          },
+                                        );
 
-                                      final response = await request
-                                          .postJson(
-                                              "https://trave-lo-gue.up.railway.app/local-shops/delete-flutter",
-                                              data);
-                                      Navigator.pushReplacementNamed(
-                                                  context,
-                                                  UMKMHomePage.ROUTE_NAME);
-                                          
-                                              
-                                    },
-                                    icon: Icon(Icons.delete),
-                                    color: buttonColor,
+                                        final response = await request.postJson(
+                                            "https://trave-lo-gue.up.railway.app/local-shops/delete-flutter",
+                                            data);
+                                        setState(() {});
+                                      },
+                                      icon: Icon(Icons.delete),
+                                      color: buttonColor,
+                                    ),
                                   ),
                                 ),
                               )),
