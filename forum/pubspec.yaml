@@ -17,8 +17,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-travelogue:
-    path: ../.
+  travelogue:
+      path: ../.
     
 dev_dependencies:
   flutter_test:
