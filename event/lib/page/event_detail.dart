@@ -172,7 +172,7 @@ class EventDetail extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             child: TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue),
+                backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(254, 185, 0, 100)),
               ),
               onPressed: () {
                 Navigator.pop(
