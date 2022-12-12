@@ -16,24 +16,21 @@ class UMKM {
         required this.name,
         required this.description,
         required this.linkWebsite,
-        required this.image,
-        required this.imageUrl,
+      
     });
 
     
     String name;
     String description;
     String linkWebsite;
-    String image;
-    String imageUrl;
+    
 
     factory UMKM.fromJson(Map<String, dynamic> json) => UMKM(
         
         name: json["fields"]["name"],
         description: json["fields"]["description"],
         linkWebsite: json["fields"]["link_website"],
-        image: json["fields"]["image"],
-        imageUrl: json["fields"]["imageURL"],
+      
     );
 
     Map<String, dynamic> toJson() => {
@@ -41,7 +38,6 @@ class UMKM {
         "name": name,
         "description": description,
         "link_website": linkWebsite,
-        "image": image,
-        "imageURL": imageUrl,
+       
     };
 }
