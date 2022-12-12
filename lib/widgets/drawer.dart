@@ -3,6 +3,8 @@ import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
 import 'package:umkm/screens/umkm_home.dart';
+import 'package:attractions/attractions.dart';
+import 'package:attractions/page/add_attr.dart';
 
 class ScfDrawer extends StatefulWidget {
   const ScfDrawer({
@@ -22,7 +24,6 @@ class _ScfDrawerState extends State<ScfDrawer> {
       child: Drawer(
         child: Column(
           children: [
-         
             ListTile(
               title: const Text('HOME'),
               onTap: () {
@@ -32,21 +33,25 @@ class _ScfDrawerState extends State<ScfDrawer> {
             Padding(
               padding: const EdgeInsets.only(left: 15.0, right: 15),
               child: Container(
-                
                 alignment: Alignment.topLeft,
                 child: DropdownButton(
                   underline: SizedBox(),
                   isExpanded: true,
-                  hint: const Text("RECOMMENDATIONS", style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 14),),
+                  hint: const Text(
+                    "RECOMMENDATIONS",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                        fontSize: 14),
+                  ),
                   value: route,
-                  
                   items: const <DropdownMenuItem<String>>[
                     DropdownMenuItem<String>(
                       value: UMKMHomePage.ROUTE_NAME,
                       child: Text('LOCAL SHOPS'),
                     ),
                     DropdownMenuItem<String>(
-                      value: 'L',
+                      value: '/attractions',
                       child: Text('ATTRACTIONS'),
                     ),
                     DropdownMenuItem<String>(
@@ -56,15 +61,13 @@ class _ScfDrawerState extends State<ScfDrawer> {
                   ],
                   onChanged: (String? value) {
                     setState(() {
-                      
-                      if(value != 'L' || value != 'T')
-                      Navigator.pushReplacementNamed(context, value!);
+                      if (value != 'L' || value != 'T')
+                        Navigator.pushReplacementNamed(context, value!);
                     });
                   },
                 ),
               ),
             ),
-            
             ListTile(
               title: const Text('MY PLANNER'),
               onTap: () {
@@ -73,9 +76,7 @@ class _ScfDrawerState extends State<ScfDrawer> {
             ),
             ListTile(
               title: const Text('QNA FORUM'),
-              onTap: () {
-                
-              },
+              onTap: () {},
             ),
           ],
         ),
