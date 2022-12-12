@@ -11,6 +11,8 @@ import 'home/home.dart';
 import 'home/login.dart';
 import 'package:umkm/screens/add_umkm.dart';
 import 'package:umkm/screens/umkm_home.dart';
+import 'package:event/event.dart';
+import 'package:event/page/add_event.dart';
 
 import 'package:forum/page/forum.dart';
 import 'package:forum/page/add_question.dart';
@@ -62,6 +64,10 @@ class MyApp extends StatelessWidget {
           
           "/planner": ((BuildContext context) =>
               const PlannerPage()),
+          "/event": ((BuildContext context) =>
+          const EventHomePage()),
+          "/add-event": ((BuildContext context) =>
+          const AddEventPage())
 
         },
       ),

@@ -1,3 +1,4 @@
+import 'package:event/event.dart';
 import 'package:flutter/material.dart';
 import '../main.dart';
 import '../home/home.dart';
@@ -6,6 +7,7 @@ import 'package:umkm/screens/umkm_home.dart';
 import 'package:forum/page/forum.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+
 
 class ScfDrawer extends StatefulWidget {
   const ScfDrawer({
@@ -101,7 +103,7 @@ class _ScfDrawerState extends State<ScfDrawer> {
                         child: Text('ATTRACTIONS', style: TextStyle(color: Colors.white)),
                       ),
                       DropdownMenuItem<String>(
-                        value: 'T',
+                        value: EventHomePage.ROUTE_NAME,
                         child: Text('UPCOMING EVENTS', style: TextStyle(color: Colors.white)),
                       ),
                     ],
