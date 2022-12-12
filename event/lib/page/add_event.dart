@@ -52,7 +52,6 @@ class _AddEventPageState extends State<AddEventPage> {
     );
 
     final response = await request.postJson(
-<<<<<<< HEAD
             "https://trave-lo-gue.up.railway.app/event/add-flutter", data
         );
 
@@ -95,24 +94,6 @@ class _AddEventPageState extends State<AddEventPage> {
     //     content: Text("An error occured, please try again."),
     //   ));
     // }
-=======
-        "https://trave-lo-gue.up.railway.app/event/add-flutter", data);
-
-    if (response['status'] == 'success') {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("Recommendation has been added!"),
-      ));
-      Navigator.pushReplacementNamed(context, EventHomePage.ROUTE_NAME);
-    } else if (response['status'] == 'dup') {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("Recommendation already exists!"),
-      ));
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("An error occured, please try again."),
-      ));
-    }
->>>>>>> c1f32fa7850e8335dbffe016361eb1b779d69d7d
   }
 
   @override

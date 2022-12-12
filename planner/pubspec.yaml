@@ -12,7 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.5
+
+  flutter_slidable: ^2.0.0
+
   travelogue:
     path: ../.
 
