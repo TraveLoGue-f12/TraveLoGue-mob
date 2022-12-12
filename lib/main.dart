@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
               generateMaterialColor(color: Color.fromRGBO(254, 185, 0, 100)),
           
         ),
-        initialRoute: "/signup",
+        initialRoute: "/login",
         routes: {
           "/login": ((BuildContext context) => const LoginPage()),
 
@@ -58,7 +58,8 @@ class MyApp extends StatelessWidget {
           "/event": ((BuildContext context) =>
           const EventHomePage()),
           "/add-event": ((BuildContext context) =>
-          const AddEventPage())
+          const AddEventPage()),
+         
 
         },
       ),
