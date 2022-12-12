@@ -11,6 +11,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:attractions/attractions.dart';
 import 'package:attractions/page/add_attr.dart';
 
+
 class ScfDrawer extends StatefulWidget {
   const ScfDrawer({
     Key? key,

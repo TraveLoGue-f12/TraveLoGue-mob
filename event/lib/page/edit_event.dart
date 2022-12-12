@@ -7,24 +7,40 @@ import 'package:travelogue/home/login.dart';
 import 'package:event/event.dart';
 import 'package:intl/intl.dart';
 
-class AddEventPage extends StatefulWidget {
-  const AddEventPage({Key? key}) : super(key: key);
-  static const ROUTE_NAME = '/add-event';
+class EditEventPage extends StatefulWidget {
+  const EditEventPage(
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.date,
+      required this.place,
+      required this.category,
+      required this.pk});
+
+  final int pk;
+  final String description;
+  final String title;
+  final String place;
+  final DateTime date;
+  final String category;
+
+  // const EditEventPage({Key? key}) : super(key: key);
+  static const ROUTE_NAME = '/edit-event';
 
   @override
-  State<AddEventPage> createState() => _AddEventPageState();
+  State<EditEventPage> createState() => _EditEventPageState();
 }
 
-class _AddEventPageState extends State<AddEventPage> {
+class _EditEventPageState extends State<EditEventPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController dateinput = TextEditingController();
   Color buttonColor = Color.fromRGBO(254, 185, 0, 100);
 
-  @override
-  void initState() {
-    dateinput.text = ""; //set the initial value of text field
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   dateinput.text = ""; //set the initial value of text field
+  //   super.initState();
+  // }
 
   String _title = "";
   String _date = "";
@@ -40,42 +56,45 @@ class _AddEventPageState extends State<AddEventPage> {
     "Others"
   ];
 
+  void initState() {
+    super.initState();
+
+    dateinput.text = widget.date.toString();
+    _title = widget.title;
+    _date = dateinput.text;
+    _description = widget.description;
+    _place = widget.place;
+    _category = widget.category;
+  }
+
   void _initCreate(request) async {
     var data = convert.jsonEncode(
       <String, String?>{
+        'pk': widget.pk.toString(),
         'title': _title,
         'description': _description,
         'place': _place,
         'category': _category,
-        'date': _date
+        'date': _date,
       },
     );
 
     final response = await request.postJson(
-            "https://trave-lo-gue.up.railway.app/event/add-flutter", data
-        );
+        "http://localhost:8000/event/edit-flutter", data);
 
     if (response['status'] == 'success') {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-                content: Text("Event has been added!"),
-            )
-        );
-        Navigator.pushReplacementNamed(context, EventHomePage.ROUTE_NAME);
-    }
-    else if (response['status'] == 'dup') {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-                content: Text("Event already exists!"),
-            )
-        );
-    }
-    else {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-                content: Text("An error occured, please try again."),
-            )
-        );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Event has been edited!"),
+      ));
+      Navigator.pushReplacementNamed(context, EventHomePage.ROUTE_NAME);
+    } else if (response['status'] == 'dup') {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Event already exists!"),
+      ));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("An error occured, please try again."),
+      ));
     }
     // final response = await request.postJson(
     //     "https://trave-lo-gue.up.railway.app/event/add-flutter", data);
@@ -129,6 +148,7 @@ class _AddEventPageState extends State<AddEventPage> {
                       });
                     },
                     // Menambahkan behavior saat data disimpan
+                    initialValue: widget.title,
                     onSaved: (String? value) {
                       setState(() {
                         _title = value!;
@@ -153,6 +173,8 @@ class _AddEventPageState extends State<AddEventPage> {
                       child: Text(items),
                     );
                   }).toList(),
+
+                  // initialValue: widget.category,
                   onChanged: (String? newValue) {
                     setState(() {
                       _category = newValue!;
@@ -191,15 +213,13 @@ class _AddEventPageState extends State<AddEventPage> {
                           setState(() {
                             dateinput.text =
                                 formattedDate; //set output date to TextField value.
-                                _date = dateinput.text;
+                            _date = dateinput.text;
                           });
                         } else {
                           print("Date is not selected");
                         }
                       },
-                    )
-                  )
-                ),
+                    ))),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
@@ -213,6 +233,7 @@ class _AddEventPageState extends State<AddEventPage> {
                       ),
                     ),
                     // Menambahkan behavior saat nama diketik
+                    initialValue: widget.place,
                     onChanged: (String? value) {
                       setState(() {
                         _place = value!;
@@ -246,6 +267,7 @@ class _AddEventPageState extends State<AddEventPage> {
                       ),
                     ),
                     // Menambahkan behavior saat nama diketik
+                    initialValue: widget.description,
                     onChanged: (String? value) {
                       setState(() {
                         _description = value!;
@@ -271,7 +293,7 @@ class _AddEventPageState extends State<AddEventPage> {
                   width: double.infinity,
                   child: ElevatedButton(
                     child: const Text(
-                      "Add",
+                      "Edit",
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ButtonStyle(
