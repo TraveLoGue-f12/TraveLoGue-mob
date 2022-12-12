@@ -70,12 +70,12 @@ Untuk para turis yang mencari kegiatan _hands-on_ dan ingin terjun beraktivitas 
 | Dapat melihat informasi acara yang dibuat oleh masing-masing user.||
 
 ### 📆 Travel Planner
-Turis dan warga lokal yang memiliki akun dapat menambahkan berbagai rencana perjalanan ke dalam Travel Planner mereka. Para pengguna dapat menambahkan rincian nama, rencana tanggal, serta catatan mengenai rencana tersebut.
+Turis dan warga lokal yang memiliki akun dapat menambahkan berbagai rencana perjalanan ke dalam Travel Planner mereka. Para pengguna dapat menambahkan rincian nama, rencana tanggal, serta catatan mengenai rencana tersebut. Modul ini menerapkan `get` untuk mengambil data rencana-rencana perjalanan milik pengguna yang kemudian akan ditampilkan pada laman Planner. Sementara, untuk menambahkan rencana baru serta menyunting rencana yang sudah ada, digunakan metode `post`.
 #### Peran Persona
 | Warga Lokal | Turis Asing |
 | ------------- | ------------- |
 | Dapat menambahkan berbagai rencana perjalanan ke dalam Travel Planner pribadi. | Dapat menambahkan berbagai rencana perjalanan ke dalam Travel Planner pribadi.  |
-| Dapat menyunting dan menghapus rencana yang telah dibuat. | Dapat menyunting dan menghapus rencana yang telah dibuat. |
+| Dapat menyunting rencana yang telah dibuat. | Dapat menyunting rencana yang telah dibuat. |
 
 ### 💬 Travel Forum
 Di Travel Forum, turis asing dapat dengan bebas menyampaikan pertanyaan mereka seputar kunjungan ke Indonesia langsung ke penduduk lokal. Komunitas lokal TraveLoGue pun dapat sukarela menjawab pertanyaan-pertanyaan tersebut. Modul ini menerapkan `post` yang berfungsi untuk menambahkan pertanyaan dan jawaban pada forum tanya jawab. Sedangkan, `get` digunakan untuk menampilkan data pertanyaan dan jawaban pada forum tanya jawab.
