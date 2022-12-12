@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, 
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("Home"),
+          Text("Home",),
           ElevatedButton(
               onPressed: () async {
                 final userLoggedIn = await getData(getCred());
