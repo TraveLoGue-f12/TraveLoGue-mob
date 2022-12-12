@@ -45,21 +45,23 @@ Berikut adalah langkah-langkah yang akan dilakukan untuk mengintegrasikan aplika
 ## 📂 Daftar Modul 📂
 Berikut ini beberapa fitur yang disediakan pada aplikasi TraveLoGue:
 ### 🛍 Recommended Local Shops
-Menurut Menteri Koperasi dan UKM, sebanyak 19,5 juta pelaku UMKM dari 65 juta, telah bergerak, terhubung, dan on boarding di bidang digital. Pada fitur ini, terdapat informasi dan rekomendasi terkait UMKM yang ada di Indonesia.
+Menurut Menteri Koperasi dan UKM, sebanyak 19,5 juta pelaku UMKM dari 65 juta, telah bergerak, terhubung, dan on boarding di bidang digital. Pada fitur ini, terdapat informasi dan rekomendasi terkait UMKM yang ada di Indonesia. Modul ini menerapkan `post` yang berfungsi untuk menambahkan rekomendasi UMKM lokal yang ditambahkan oleh user lokal, sedangkan fungsi `get` berfungsi untuk mengambil data objek UMKM lokal yang ada.
+
 #### Peran Persona 
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
 | Dapat memberikan rekomendasi UMKM yang menarik untuk turis asing.  | Dapat melihat rekomendasi UMKM yang diberikan oleh warga lokal.  |
 
 ### 🏙 Recommended Attractions
-Tentunya, objek wisata menjadi salah satu tujuan paling populer bagi turis saat berkunjung ke negara asing. Pada fitur ini, terdapat informasi dan rekomendasi terkait objek-objek wisata yang ada di Indonesia. 
+Tentunya, objek wisata menjadi salah satu tujuan paling populer bagi turis saat berkunjung ke negara asing. Pada fitur ini, terdapat informasi dan rekomendasi terkait objek-objek wisata yang ada di Indonesia. Modul ini menerapkan `post` yang berfungsi untuk menambahkan rekomendasi objek wisata terbaru yang ditambahkan oleh user lokal, sedangkan fungsi `get` berfungsi untuk mengambil data objek wisata yang ada. 
 #### Peran Persona
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
 | Dapat memberikan rekomendasi objek wisata yang menarik untuk turis asing.  | Dapat melihat rekomendasi objek wisata yang diberikan oleh warga lokal.  |
 
 ### 🎟 Event Promotions
-Untuk para turis yang mencari kegiatan _hands-on_ dan ingin terjun beraktivitas langsung bersama warga lokal Indonesia, kami menyediakan fitur Event Promotions. Pada fitur ini, turis dapat menemukan informasi mengenai acara-acara yang sedang diselenggarakan oleh warga lokal, dari lokakarya membatik hingga _fun hike_.
+Untuk para turis yang mencari kegiatan _hands-on_ dan ingin terjun beraktivitas langsung bersama warga lokal Indonesia, kami menyediakan fitur Event Promotions. Pada fitur ini, turis dapat menemukan informasi mengenai acara-acara yang sedang diselenggarakan oleh warga lokal, dari lokakarya membatik hingga _fun hike_.  Modul ini menerapkan `post` yang berfungsi untuk menambahkan rekomendasi _event_ lokal yang ditambahkan oleh user lokal, sedangkan fungsi `get` berfungsi untuk mengambil data objek _event_ lokal yang ada.
+
 #### Peran Persona
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
@@ -76,8 +78,8 @@ Turis dan warga lokal yang memiliki akun dapat menambahkan berbagai rencana perj
 | Dapat menyunting dan menghapus rencana yang telah dibuat. | Dapat menyunting dan menghapus rencana yang telah dibuat. |
 
 ### 💬 Travel Forum
-Di Travel Forum, turis asing dapat dengan bebas menyampaikan pertanyaan mereka seputar kunjungan ke Indonesia langsung ke penduduk lokal. Komunitas lokal TraveLoGue pun dapat sukarela menjawab pertanyaan-pertanyaan tersebut.
-#### Peran Persona
+Di Travel Forum, turis asing dapat dengan bebas menyampaikan pertanyaan mereka seputar kunjungan ke Indonesia langsung ke penduduk lokal. Komunitas lokal TraveLoGue pun dapat sukarela menjawab pertanyaan-pertanyaan tersebut. Modul ini menerapkan `post` yang berfungsi untuk menambahkan pertanyaan dan jawaban pada forum tanya jawab. Sedangkan, `get` digunakan untuk menampilkan data pertanyaan dan jawaban pada forum tanya jawab.
+#### Peran Persona.
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
 | Dapat menjawab semua pertanyaan yang telah ditanyakan oleh turis asing mengenai Indonesia. | Dapat mengajukan pertanyaan yang ingin ditanyakan mengenai Indonesia ke warga lokal. |
