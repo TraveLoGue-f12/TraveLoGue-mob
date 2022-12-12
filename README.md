@@ -66,7 +66,6 @@ Untuk para turis yang mencari kegiatan _hands-on_ dan ingin terjun beraktivitas 
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
 | Dapat membuat submisi berupa informasi acara yang ingin dipromosikan.| Dapat melihat rekomendasi acara yang diberikan oleh pengguna warga lokal.  |
-| Dapat menyunting dan menghapus submisi informasi acara yang dibuat.||
 | Dapat melihat informasi acara yang dibuat oleh masing-masing user.||
 
 ### 📆 Travel Planner
