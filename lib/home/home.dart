@@ -16,7 +16,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Home")),
+      appBar: AppBar(title: Text(
+                  "Hello, ${LoggedIn.user_data['username']}!",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
+                  )
+              )),
       drawer: ScfDrawer(),
       body: 
       ListView(
