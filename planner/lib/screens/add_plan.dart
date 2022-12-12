@@ -21,7 +21,6 @@ class _AddPlanPageState extends State<AddPlanPage> {
   DateTime startDate = DateTime(0,0,0);
   DateTime endDate = DateTime(0,0,0);
   String notes = "";
-  String image = "";
 
   void _initCreate(request) async {
     var data = convert.jsonEncode(
@@ -31,7 +30,6 @@ class _AddPlanPageState extends State<AddPlanPage> {
         "start_date": "${startDate.year.toString().padLeft(4, '0')}-${startDate.month.toString().padLeft(2, '0')}-${startDate.day.toString().padLeft(2, '0')}",
         "end_date": "${endDate.year.toString().padLeft(4, '0')}-${endDate.month.toString().padLeft(2, '0')}-${endDate.day.toString().padLeft(2, '0')}",
         "notes": notes,
-        "image": image,      
       },
     );
 
