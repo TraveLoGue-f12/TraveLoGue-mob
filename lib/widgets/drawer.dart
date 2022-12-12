@@ -6,7 +6,8 @@ import '../home/login.dart';
 import 'package:umkm/screens/umkm_home.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
-
+import 'package:attractions/attractions.dart';
+import 'package:attractions/page/add_attr.dart';
 
 class ScfDrawer extends StatefulWidget {
   const ScfDrawer({
@@ -98,7 +99,7 @@ class _ScfDrawerState extends State<ScfDrawer> {
                         child: Text('LOCAL SHOPS', style: TextStyle(color: Colors.white)),
                       ),
                       DropdownMenuItem<String>(
-                        value: 'L',
+                        value: '/attractions',
                         child: Text('ATTRACTIONS', style: TextStyle(color: Colors.white)),
                       ),
                       DropdownMenuItem<String>(
@@ -127,6 +128,7 @@ class _ScfDrawerState extends State<ScfDrawer> {
               ),
             ],
           ),
+
         ),
       ),
     );

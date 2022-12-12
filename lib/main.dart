@@ -13,6 +13,8 @@ import 'package:umkm/screens/add_umkm.dart';
 import 'package:umkm/screens/umkm_home.dart';
 import 'package:event/event.dart';
 import 'package:event/page/add_event.dart';
+import 'package:attractions/attractions.dart';
+import 'package:attractions/page/add_attr.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
           primarySwatch:
               generateMaterialColor(color: Color.fromRGBO(254, 185, 0, 100)),
-          
+
         ),
         initialRoute: "/login",
         routes: {
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
 
           HomePage.ROUTE_NAME: ((BuildContext context) => const HomePage()),
           "/signup": ((BuildContext context) => const SignUpPage()),
-
+          
           AddUMKMPage.ROUTE_NAME: ((BuildContext context) =>
               const AddUMKMPage()),
           UMKMHomePage.ROUTE_NAME: ((BuildContext context) =>
@@ -59,8 +61,9 @@ class MyApp extends StatelessWidget {
           const EventHomePage()),
           "/add-event": ((BuildContext context) =>
           const AddEventPage()),
-         
-
+          "/planner": ((BuildContext context) => const PlannerPage()),
+          "/attractions": ((BuildContext context) => const AttractionsPage()),
+          "/add-attraction": ((BuildContext context) => const AddAttractionsPage()),
         },
       ),
     );
