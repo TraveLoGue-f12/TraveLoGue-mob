@@ -3,6 +3,10 @@ import 'package:forum/page/forum.dart';
 import 'package:travelogue/main.dart';
 import 'package:travelogue/widgets/drawer.dart';
 import 'package:event/event.dart';
+import 'package:umkm/screens/umkm_home.dart';
+import 'package:forum/page/forum.dart';
+import 'package:attractions/attractions.dart';
+import 'package:planner/screens/planner.dart';
 import '../util/fetch.dart';
 
 class HomePage extends StatefulWidget {
@@ -117,6 +121,14 @@ class _HomePageState extends State<HomePage> {
                           GestureDetector(
                           // onTap: onTap,
                             // onTap: onTap,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const UMKMHomePage(),
+                                ),
+                              );
+                            },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 15,
@@ -140,14 +152,14 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         GestureDetector(
-                            // onTap: () {
-                            //   Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => const CulinaryEventHomePage(),
-                            //     ),
-                            //   );
-                            // },
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const AttractionsPage(),
+                                ),
+                              );
+                            },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 15,
@@ -175,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const ForumHomePage(),
+                                  builder: (context) => const EventHomePage(),
                                 ),
                               );
                             },
@@ -211,8 +223,14 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           GestureDetector(
-                          // onTap: onTap,
-                            // onTap: onTap,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const ForumHomePage(),
+                                ),
+                              );
+                            },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 15,
@@ -236,14 +254,14 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         GestureDetector(
-                            // onTap: () {
-                            //   Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => const CulinaryEventHomePage(),
-                            //     ),
-                            //   );
-                            // },
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const PlannerPage(),
+                                ),
+                              );
+                            },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 15,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:planner/screens/add_plan.dart';
@@ -44,7 +43,7 @@ class _PlannerPageState extends State<PlannerPage> {
               return Column(
                 children: const [
                   Text(
-                    "Tidak ada watchlist",
+                    "No plans yet...",
                     style:
                         TextStyle(color: Colors.blue, fontSize: 20),
                   ),
