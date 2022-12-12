@@ -1,5 +1,6 @@
 import 'package:event/event.dart';
 import 'package:flutter/material.dart';
+import 'package:planner/screens/planner.dart';
 import '../main.dart';
 import '../home/home.dart';
 import '../home/login.dart';
@@ -119,7 +120,7 @@ class _ScfDrawerState extends State<ScfDrawer> {
               ListTile(
                 title: const Text('MY PLANNER', style: TextStyle(color: Colors.white)),
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, "/planner");
+                  Navigator.pushReplacementNamed(context, PlannerPage.ROUTE_NAME);
                 },
               ),
               ListTile(
@@ -128,7 +129,6 @@ class _ScfDrawerState extends State<ScfDrawer> {
               ),
             ],
           ),
-
         ),
       ),
     );
