@@ -64,6 +64,16 @@ Event handler yang digunakan pada modul:
 
 ### 🏙 Recommended Attractions
 Tentunya, objek wisata menjadi salah satu tujuan paling populer bagi turis saat berkunjung ke negara asing. Pada fitur ini, terdapat informasi dan rekomendasi terkait objek-objek wisata yang ada di Indonesia. Modul ini menerapkan `post` yang berfungsi untuk menambahkan rekomendasi objek wisata terbaru yang ditambahkan oleh user lokal, sedangkan fungsi `get` berfungsi untuk mengambil data objek wisata yang ada. 
+
+Event handler yang digunakan pada modul ini:
+
+1. `onChanged`:
+  * Digunakan pada file `add_attr.dart` yang berfungsi untuk inisiasi ketika ada perubahan pada `TextFormField` pada form penambahan rekomendasi _attraction_
+
+2.  `onPressed`:
+  * Button detail dari setiap rekomendasi _attraction_ yang akan memindahkan ke page detail _attraction_ tersebut.
+  * Button Add pada page `Recommended Attractions` yang akan mengarahkan ke page form untuk menambahkan rekomendasi _attraction_ terbaru.
+
 #### Peran Persona
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
