@@ -64,7 +64,7 @@ Untuk para turis yang mencari kegiatan _hands-on_ dan ingin terjun beraktivitas 
 
 Event handler yang digunakan pada modul:
 
-1. `onTap` pada tiap card Plan yang akan memanggil `Navigator.push` di mana akan ter-push halaman Edit Plan untuk menyunting Plan tersebut.
+1. `onTap`:
 * Digunakan pada tiap card event di mana ketika card di-tap akan memanggil `Navigator.push` dan melakukan push menuju halaman yang berisi detail event
 * Digunakan pada button My Event di mana ketika di-tap akan memanggil `Navigator.push` dan melakukan push menuju halaman My Event
 * Digunakan pada tiap card category di mana ketika card di-tap akan memanggil `Navigator.push` dan melakukan push menuju halaman tiap kategori event
@@ -91,6 +91,16 @@ Event handler yang digunakan pada modul:
 
 ### 💬 Travel Forum
 Di Travel Forum, turis asing dapat dengan bebas menyampaikan pertanyaan mereka seputar kunjungan ke Indonesia langsung ke penduduk lokal. Komunitas lokal TraveLoGue pun dapat sukarela menjawab pertanyaan-pertanyaan tersebut. Modul ini menerapkan `post` yang berfungsi untuk menambahkan pertanyaan dan jawaban pada forum tanya jawab. Sedangkan, `get` digunakan untuk menampilkan data pertanyaan dan jawaban pada forum tanya jawab.
+
+Event handler yang digunakan pada modul:
+
+* `onTap` pada tiap card Question yang akan memanggil `Navigator.push` di mana akan ter-push halaman Answers untuk menampilkan jawaban dari pertanyaan tersebut.
+* `onPressed` digunakan pada:
+  * Button Add Question dan Add Answer yang akan mengarahkan ke halaman form yang sesuai untuk menambahkan pertanyaan atau jawaban.
+  * Button Delete Question dan Delete Answer yang akan memanggil function yang sesuai untuk menghapus pertanyaan atau jawaban.
+  * Button Back yang akan mengarahkan ke halaman sebelumnya yang sesuai.
+* `onChanged` pada halaman form Add Question dan Add Answer untuk inisiasi perubahan value sebuah TextField ketika text baru ditambahkan.
+
 #### Peran Persona.
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
