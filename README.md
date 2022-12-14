@@ -47,6 +47,16 @@ Berikut ini beberapa fitur yang disediakan pada aplikasi TraveLoGue:
 ### 🛍 Recommended Local Shops
 Menurut Menteri Koperasi dan UKM, sebanyak 19,5 juta pelaku UMKM dari 65 juta, telah bergerak, terhubung, dan on boarding di bidang digital. Pada fitur ini, terdapat informasi dan rekomendasi terkait UMKM yang ada di Indonesia. Modul ini menerapkan `post` yang berfungsi untuk menambahkan rekomendasi UMKM lokal yang ditambahkan oleh user lokal, sedangkan fungsi `get` berfungsi untuk mengambil data objek UMKM lokal yang ada.
 
+Event handler yang digunakan pada modul:
+
+1. `onTap`:
+  * Digunakan pada card local shop di mana ketika card di-tap akan menampilkan suatu `dialog` yang berisi detail local shop.
+
+2.  `onPressed`:
+  * Button Add Local Shops akan mengarahkan ke halaman form yang sesuai untuk menambahkan local shops.
+  * Button Delete memanggil function yang sesuai untuk menghapus local shops.
+  * Button Back memanggil akan mengarahkan ke halaman untuk kembali menampilkan rekomendasi local shops.
+  
 #### Peran Persona 
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
