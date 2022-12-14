@@ -55,7 +55,7 @@ Event handler yang digunakan pada modul:
 2.  `onPressed`:
   * Button Add Local Shops akan mengarahkan ke halaman form yang sesuai untuk menambahkan local shops.
   * Button Delete memanggil function yang sesuai untuk menghapus local shops.
-  * Button Back memanggil akan mengarahkan ke halaman untuk kembali menampilkan rekomendasi local shops.
+  * Button Back akan mengarahkan ke halaman untuk kembali menampilkan rekomendasi local shops.
   
 #### Peran Persona 
 | Warga Lokal  | Turis Asing |
