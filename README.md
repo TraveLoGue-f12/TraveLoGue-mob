@@ -94,12 +94,12 @@ Di Travel Forum, turis asing dapat dengan bebas menyampaikan pertanyaan mereka s
 
 Event handler yang digunakan pada modul:
 
-* `onTap` pada tiap card Question yang akan memanggil `Navigator.push` di mana akan ter-push halaman Answers untuk menampilkan jawaban dari pertanyaan tersebut.
+* `onTap` dugnakan pada tiap card Question yang akan memanggil `Navigator.push` di mana akan ter-push halaman Answers untuk menampilkan jawaban dari pertanyaan tersebut.
 * `onPressed` digunakan pada:
   * Button Add Question dan Add Answer yang akan mengarahkan ke halaman form yang sesuai untuk menambahkan pertanyaan atau jawaban.
   * Button Delete Question dan Delete Answer yang akan memanggil function yang sesuai untuk menghapus pertanyaan atau jawaban.
   * Button Back yang akan mengarahkan ke halaman sebelumnya yang sesuai.
-* `onChanged` pada halaman form Add Question dan Add Answer untuk inisiasi perubahan value sebuah TextField ketika text baru ditambahkan.
+* `onChanged` digunakan pada halaman form Add Question dan Add Answer untuk inisiasi perubahan value sebuah TextField ketika text baru ditambahkan.
 
 #### Peran Persona.
 | Warga Lokal  | Turis Asing |
