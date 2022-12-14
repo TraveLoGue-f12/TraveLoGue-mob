@@ -62,6 +62,15 @@ Tentunya, objek wisata menjadi salah satu tujuan paling populer bagi turis saat 
 ### 🎟 Event Promotions
 Untuk para turis yang mencari kegiatan _hands-on_ dan ingin terjun beraktivitas langsung bersama warga lokal Indonesia, kami menyediakan fitur Event Promotions. Pada fitur ini, turis dapat menemukan informasi mengenai acara-acara yang sedang diselenggarakan oleh warga lokal, dari lokakarya membatik hingga _fun hike_.  Modul ini menerapkan `post` yang berfungsi untuk menambahkan rekomendasi _event_ lokal yang ditambahkan oleh user lokal, sedangkan fungsi `get` berfungsi untuk mengambil data objek _event_ lokal yang ada.
 
+Event handler yang digunakan pada modul:
+
+1. `onTap` pada tiap card Plan yang akan memanggil `Navigator.push` di mana akan ter-push halaman Edit Plan untuk menyunting Plan tersebut.
+* Digunakan pada tiap card event di mana ketika card di-tap akan memanggil `Navigator.push` dan melakukan push menuju halaman yang berisi detail event
+* Digunakan pada button My Event di mana ketika di-tap akan memanggil `Navigator.push` dan melakukan push menuju halaman My Event
+* Digunakan pada tiap card category di mana ketika card di-tap akan memanggil `Navigator.push` dan melakukan push menuju halaman tiap kategori event
+
+2.  `onPressed` digunakan untuk button Add Event di mana saat di-pressed/dipencet akan memanggil `Navigator.push` dan melakukan push menuju halaman Add Event
+
 #### Peran Persona
 | Warga Lokal  | Turis Asing |
 | ------------- | ------------- |
